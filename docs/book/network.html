@@ -1,0 +1,1407 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Hexo">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-06
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="ctf入门"><a href="#ctf入门" class="headerlink" title="ctf入门"></a>ctf入门</h1><h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="xff和referer伪造"><a href="#xff和referer伪造" class="headerlink" title="xff和referer伪造"></a>xff和referer伪造</h3><p>直接在Proxy的Intercept is on里面改写</p>
+<p>X-Forwarded-For:</p>
+<p>Referer:</p>
+<h3 id="Robots协议"><a href="#Robots协议" class="headerlink" title="Robots协议"></a>Robots协议</h3><p>直接在网址后加上robots.txt</p>
+<p>同样的对应的.php也可以直接加上后尝试打开</p>
+<h3 id="php"><a href="#php" class="headerlink" title="php"></a>php</h3><p>php的备份文件一般格式有两种：</p>
+<p>1:index.php~</p>
+<p>2:index.php.bak</p>
+<p>对于php代码首先需要了解内容与判断条件，理解之后可以直接在网址中输入</p>
+<p>对于一句话病毒：</p>
+<p>可以使用中国蚁剑进行输入</p>
+<p>也可以使用hackbar，使用post方式传递shell=system(‘cat flag.txt’); 获得flag</p>
+<h3 id="前端摁键等"><a href="#前端摁键等" class="headerlink" title="前端摁键等"></a>前端摁键等</h3><p>可以通过直接修改源代码中的内容使其可见或者可以运行</p>
+<h3 id="撞库"><a href="#撞库" class="headerlink" title="撞库"></a>撞库</h3><p>选择需要撞库的对象，加入字典进行撞库</p>
+<h3 id="网页数据提交"><a href="#网页数据提交" class="headerlink" title="网页数据提交"></a>网页数据提交</h3><p>对于提交数据可以在post端先输入x=system(“ls”);查看当前目录下的文件，然后x=system(“pwd”);查看目录,再用s=system(“find / -name flag”);寻找flag，然后用s=system(“cat /flag”);打开（此处flag在上一级需注意使用/）</p>
+<p>对于waf注入：</p>
+<p>可以使用命令127.0.0.1进行试探</p>
+<p>对于获得flag可以使用</p>
+<p>构造127.0.0.1| find / -name “flag*”，若有相关内容会提示如：“/home/flag.txt”</p>
+<p>再进行注入构造127.0.0.1|cat /home/flag.txt</p>
+<p>对于get类数据可以直接在网址后加上/?后输入内容</p>
+<p>对于post类数据可以使用hackbar进行输入</p>
+<p><img src="../png/31.png"></p>
+<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><p>对于wireshark内的流量包可以使用ctrl+f对关键字进行字符串搜索</p>
+<p>对于wireshark中的隐写可以直接尝试使用foremost进行分离</p>
+<p>命令：openssl rsautl -decrypt -in key.txt -inkey psa.key -out flag.txt<br>-in 为要解密的加密文档 -inkey 为密钥 -out 为输出文档（注意需要保留所有内容作为解密key）</p>
+<p>对于解压缩后无flag但有.git的文件可以先尝试binwalk查看文件类型若为bzip2则将其重命名，解压，进入子文件夹，查看查看git，首先使用git log查看git记录，然后使用git stash list查看修改列表，再使用git stash show校验列表中存储的文件，使用git stash apply重新进行存储，复原上面的文件</p>
+<p><img src="../png/55.png"></p>
+<p>寻找key.txt发现有多个txt文件于是使用grep -r key.txt寻找文件</p>
+<p><img src="../png/56.png"></p>
+<p>对于core类可以使用linux下 strings 打开查看内容</p>
+<p>若010editor后发现有pk等字样可以改格式为rar或者zip进行打开</p>
+<p>对于32位或16位中英混合可尝试base64解码</p>
+<p>有13字样的可能使用rot-13工具</p>
+<p>对于pdf可将内容全部选取后用txt打开如：ctrl+a;ctrl+c使用txt打开</p>
+<p>对于rar等可以使用binwalk先查看里面是否含有多个内容，再使用010editor查看内容</p>
+<p>rar对png的文件类型编码是74，详细文章：</p>
+<p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/3caf8f11866fb84ae45c8de5.html">https://wenku.baidu.com/view/3caf8f11866fb84ae45c8de5.html</a></p>
+<p>对于光盘文件可以直接解压查找内容</p>
+<p>对于pcapng文件可以先用wireshark打开，输入表达式http contains flag查看http协议的报文是否包含flag的信息，追踪筛选出的报文追踪tcp流（以查找可能拥有的信息，比如16进制代码等可以使用图片形式打开）</p>
+<p>可以使用010editor打开但需要</p>
+<p><img src="../png/32.png"></p>
+<p>然后使用ubuntu  打开命令行  输入foremost -i 拖入文件</p>
+<p>可能得出隐藏的文件（在此之前可以直接用binwalk查看是否有隐藏数据）</p>
+<p>遇到全是+-&lt;&gt;的可能是brainfuck加密</p>
+<p>03F30D0A是pyc文件</p>
+<h2 id="密码（crypto）"><a href="#密码（crypto）" class="headerlink" title="密码（crypto）"></a>密码（crypto）</h2><p>看到结尾有等号先丢base64（需要与DES区分）,若全文有多个等号丢base32</p>
+<p>多组AB组合可能为培根密码</p>
+<p>对应的幂数加密如果无法对2进行幂数加密可以尝试1</p>
+<p>轮转机加密对应的密文可以这样理解第一行实际对应的是第（第一个密钥）行，第二行对应的是（第二个密钥）行</p>
+<p>对pem文件可用如下方式打开</p>
+<p><img src="../png/40.png"></p>
+<p>可以直接尝试使用命令打开否则，则可能需要将q,p,n,e写为pem文件并用此文件打开进行解密</p>
+<p><img src="../png/41.png"></p>
+<p>也可以用下面的命令将q,p,e输出为pem文件</p>
+<p><img src="../png/42.png"></p>
+<p><img src="../png/43.png"></p>
+<p>对于ecc题目可以直接用ecctool进行解决对应输入后使用calc r解出k(x,y)公钥</p>
+<h1 id="ctf比赛题目"><a href="#ctf比赛题目" class="headerlink" title="ctf比赛题目"></a>ctf比赛题目</h1><h2 id="2020暨大新生杯"><a href="#2020暨大新生杯" class="headerlink" title="2020暨大新生杯"></a>2020暨大新生杯</h2><h3 id="密码类："><a href="#密码类：" class="headerlink" title="密码类："></a>密码类：</h3><p>碰碰车：</p>
+<p>对应三个未知变量直接用python3，对应的ascii（128）进行遍历，给出代码：</p>
+<p>‘’’</p>
+<p>已知线索：md5(AGVSCF?TZV?WBGVHC?U)=a8f738??????5ea5??????80865???af</p>
+<p>‘’’</p>
+<p>import hashlib</p>
+<p>a=’AGVSCF’</p>
+<p>b=’TZV’</p>
+<p>c=’WBGVHC’</p>
+<p>d=’U’</p>
+<p>for i in range(32,128):</p>
+<pre><code>    for u in range(32,128):
+
+            for k in range(32,128):
+
+                    c='AGVSCF'+chr(i)+'TZV'+chr(u)+'WBGVHC'+chr(k)+'U'
+
+                    a = hashlib.md5()
+
+                    a.update(c.encode(encoding='utf-8'))
+
+                    if a.hexdigest()[:6]=='a8f738':
+                    
+                            print('AGVSCF'+chr(i)+'TZV'+chr(u)+'WBGVHC'+chr(k)+'U')
+</code></pre>
+<p>求出：ctf{AGVSCF9TZV9WBGVHC2U}</p>
+<p>Easy rsa:</p>
+<p><img src="../png/ctf1.png"></p>
+<p>使用z3约束求解器输入条件约束求得p,q,利用p,q,d,n带入rsa求解工具得到</p>
+<p><img src="../png/ctf2.png"></p>
+<p>ctf{Rsa_1s_So_Easy!!!}</p>
+<h3 id="web类："><a href="#web类：" class="headerlink" title="web类："></a>web类：</h3><p>假的签到：</p>
+<p>根据robots协议直接在网页后面加上/robots.txt,然后打开/phpp_tql.php，发现还需要继续输入，百度绕过机制用[]使其结果一致但二者不同，最后获得flag</p>
+<p><img src="../png/ctf3.png"></p>
+<p>ctf{r0bots_1s_g00d}</p>
+<p>世界上最简单的后门:</p>
+<p>打开后发现是输入指令获得flag，先使用c=system(“ls”);发现无flag,然后使用c=system(“pwd”);查看目录发现有上级目录，继续使用c=system(“ls /”);查看上一级目录，发现flag，用c=system(“cat /flag”);打开获得flag</p>
+<p>ctf{gOoo0od}</p>
+<p><img src="../png/ctf4.png"></p>
+<p>Let’s play a simple game again：</p>
+<p>开始时按照题目正常做用get在网页提交然后用post提交数据发现会提示我不是admin，</p>
+<p><img src="../png/ctf5.png"></p>
+<p>使用burpsuite抓包，提交过程，发现</p>
+<p><img src="../png/ctf6.png"></p>
+<p>Base64解码之后发现此为admin=0,自己输入base(admin=1)后尝试，不行，修改为本地上传，加上X-Forwarded-For:127.0.0.1后得出结果</p>
+<p><img src="../png/ctf7.png"></p>
+<p>ctf{Have_4_n1ce_c0mpetition!}</p>
+<p>babysql ：</p>
+<p>查看后为提交内容获得其中的flag，随便提交了一下发现没什么东西，源码也没什么提示，尝试多种sql方法后未能成功，然后猜测为堆叠注入，</p>
+<p>先输入</p>
+<p>1’;show databases;#查看数据库发现有ctf,尝试直接打开</p>
+<p>1’;show tables from ctf;#发现有flag，继续打开</p>
+<p>1’;show columns from flag;得到解</p>
+<p><img src="../png/ctf8.png"></p>
+<p>答案为ctf{enjoy_Sq1i11_qu3ryy}</p>
+<p>babyssrf :</p>
+<p>莫得思路随便尝试一下先打<a target="_blank" rel="noopener" href="http://42.194.147.119:18776/?url=file:/">http://42.194.147.119:18776/?url=file:/</a></p>
+<p>发现有回显，尝试寻找flag，获得答案</p>
+<p><img src="../png/ctf9.png"></p>
+<p>ctf{ssrf_1s_soooo_fun}</p>
+<h3 id="MISC-1"><a href="#MISC-1" class="headerlink" title="MISC:"></a>MISC:</h3><p>真签到：</p>
+<p>按照题目要求所做即可，</p>
+<p><img src="../png/ctf10.png"></p>
+<p>ctf{Sign_1n_4nd_Enjoy_Yourself!}</p>
+<p>Look_at_your_keyboard：</p>
+<p><img src="../png/ctf11.png"></p>
+<p>一开始以为时ctfisfvn,后改为ctfisfun后正确ctf{ctfisfun}</p>
+<p>Buddha:</p>
+<p><img src="../png/ctf12.png"></p>
+<p>按所给信息去新与佛论禅处获得解密信息，Y3tXX3p9dFhuYlJmMlJEUw==</p>
+<p>Base64解密，得到c{W_z}tXnbRf2RDS</p>
+<p>排列组合一下得到（当然也可以直接栅栏解密）：ctf{X2WnR_bDzRS}</p>
+<p>Do you know Xp0int：</p>
+<p>打开图片没发现什么东西先看一下01editor,查找flag和ctf发现如下图，</p>
+<p>获得题解：</p>
+<p>ctf{We1c0me_to_Join_Us}</p>
+<p><img src="../png/ctf13.png"></p>
+<p>close_base：</p>
+<p>一开始逐个base64解码，获得后接触为helloworld,密码错误，后百度到此为base64隐写，找到代码后运行获得答案</p>
+<p>ctf{magic_bs64a!}</p>
+<p><img src="../png/ctf14.png"></p>
+<p>EasyMisc:</p>
+<p>将获得的zip解压发现一个png和一个女孩的照片，女孩照片可以获得一个加密的压缩包，不过打不开，另一张png与攻防世界中一道题类似，故尝试直接用盲水印破解，获得图片(非正常解法)</p>
+<p><img src="../png/ctf15.png"></p>
+<p>最后答案为ctf{LSGG_TXDY_ddddhm}（此处的TX可能为TK或TY，不记得了）</p>
+<p>集齐五龙珠：</p>
+<p>由于先做了星际传输协议，故此题看出为zip合成，先根据时间排序，后将文件用以命名，用python输出格式文件名，用linux，cat 1 2 3 … &gt; test.zip解压获得test，</p>
+<p>用记事本打开，在最后发现</p>
+<p><img src="../png/ctf16.png"></p>
+<p>PMGBA:</p>
+<p>首先根据图腾解密为：remember to examine the</p>
+<p>然后用01editor打开花的图片在末尾发现：</p>
+<p>UEsDBBQAAQAIAFW2UFGlNtLRTgAAAHoBAAAKAAAAaGlkZGVuLnR4dHw7+ww4UU8eP4ct4CPy5lPPlBCYCDTL1tJk38pTyrB/Fe91nAUVsB0p+rvB9k2gmvZhkUxC2FYE003K9I54oi1czZcc9A47iO+5MnwlBLAQI/ABQAAQAIAFW2UFGlNtLRTgAAAHoBAAAKACQAAAAAAAAAIAgAAAAAAABoaWRkZW4udHh0CgAgAAAAAAABABgA3IHzt8uj1gHcgfO3y6PWAYBHYaTLo9YBUEsFBgAAAAABAAEAXAAAAHYAAAAAAA==</p>
+<p>Base64解密然后获得一串神奇字符，在输入回01editor发现是压缩包，打开发现时hidden.txt，不过需要密码，用strings等检查花，用zsteg发现password</p>
+<p><img src="../png/ctf17.png"></p>
+<p>获得hidden.txt之后发现是pikalanguage，解密发现是foo bar,与一开始的remember to examine the排列组合，最后结果为（印象中是）：</p>
+<p>ctf{remember to examine the foo bar}</p>
+<p>快乐修补匠:</p>
+<p>按照提示使用流密码解密（部分代码截图）</p>
+<p><img src="../png/ctf18.png"></p>
+<p><img src="../png/ctf19.png"></p>
+<p>把对应的16进制写回获得答案</p>
+<p><img src="../png/ctf20.png"></p>
+<p>ctf{y0u_mus7_kn0w_png_f0rmAt_well}</p>
+<h3 id="逆向："><a href="#逆向：" class="headerlink" title="逆向："></a>逆向：</h3><p>抓迷藏：</p>
+<p>下载zip解压并用IDA打开，在Hex-view中发现flag,</p>
+<p>解为ctf{we1c0me_70_R3_wor!d}<br>(此处是真不知道这个要不要H，需要多次测试一下)</p>
+<p><img src="../png/ctf21.png"></p>
+<p>Bytecode:</p>
+<p>用IDA打开，没看出什么东西，用TXT打开，发现伪代码，重新理解得知为对flag(n)逐个进行的计算操作，逐个逆回去，得出结果</p>
+<p>ctf{zygg_yyds_ddddhm}</p>
+<p>Basic_hash:</p>
+<p>放入IDA后看</p>
+<p><img src="../png/ctf22.png"></p>
+<p>发现为16的数组内逐个异或后与md5加密相同，因此再次异或获得原文再查询MD5</p>
+<p><img src="../png/ctf23.png"></p>
+<p>ctf{zyggyyds}</p>
+<h3 id="社会工程学题目："><a href="#社会工程学题目：" class="headerlink" title="社会工程学题目："></a>社会工程学题目：</h3><p>题目1（checkin ）：</p>
+<p>首先是寻找邮箱在2019的群内获得：为xp0intjnu</p>
+<p><img src="../png/ctf24.png"></p>
+<p>然后是两个大赛一个是强网杯一个是世安杯，最后得出为世安杯(shianbei)</p>
+<p>最后是创始人ID，在微信的成员博客处获得</p>
+<p>故合并为ctf{xp0intjnushianbeigiantbranch}</p>
+<p><img src="../png/ctf25.png"></p>
+<p>Find the attacker:</p>
+<p>先进入博客<a target="_blank" rel="noopener" href="http://blog.leanote.com/single/xp0int/About-Me">http://blog.leanote.com/single/xp0int/About-Me</a></p>
+<p>和<a target="_blank" rel="noopener" href="http://blog.leanote.com/single/xp0int/Secret-places">http://blog.leanote.com/single/xp0int/Secret-places</a></p>
+<p><img src="../png/ctf26.png"></p>
+<p>在about me处发现：Hello, I am (^_^).I love Baidu services!</p>
+<p>在secret-places处发现一串代码：For the glory of mankind: 1yEt5juom35MATrGy_UWq9w</p>
+<p>百度服务结合代码猜测为百度网盘，</p>
+<p>打开后根据弱代码提示故猜测为1234等，最后由1234通过，下载文件docx</p>
+<p>打开后未发现有用信息，用01editor打开发现pk猜测为zip，解压重复寻找后未发现有用信息</p>
+<p>再次返回docx，百度文章隐写，尝试清除格式获得</p>
+<p><img src="../png/ctf27.png"></p>
+<p>用各种搭配签名访问github（根据提示），寻找到该用户，查找有用信息，在历史记录中发现一个网址</p>
+<p><img src="../png/ctf28.png"></p>
+<p>访问，去除地址末尾，然后进入</p>
+<p><img src="../png/ctf29.png"></p>
+<p>访问txt,发现为多对数字，猜测为经纬度，python编码得出结果：</p>
+<p><img src="../png/ctf30.png"></p>
+<p>ctf{AIDTMLS}为答案</p>
+<h3 id="区块链："><a href="#区块链：" class="headerlink" title="区块链："></a>区块链：</h3><p>将获得的哈希值先在ipfs中查询未获得对应文件，故猜测为测试链，在测试链中找到对应的文件，并获得flag</p>
+<p><img src="../png/ctf31.png"></p>
+<p>ctf{ZSJJ_YYDS!!!!}</p>
+<p>题目2：（星际传输系统）</p>
+<p>按题目所说在ipfs上逐个下回，用cat重新拼接，</p>
+<p><img src="../png/ctf32.png"></p>
+<p>对于sha256sum在前面加上1220用base58获得对应hash</p>
+<p>base58.b58encode_int(int(“1220fea059fa9594cfdf68797eab451c6d9c4673a4252a945d117ee34d5ad3a9b154”, 16))</p>
+<p>输入ipfs获得图片二</p>
+<p><img src="../png/ctf33.png"></p>
+<p>但是多次输入md5{hash2+hash1}未能成功，推测为hash1错误，于是重新分片上传（70kb对应71680字节）</p>
+<p>获得的hash1再次用md5(hash2+hash1)得到结果为</p>
+<p><img src="../png/ctf34.png"></p>
+<p>故解为ctf{c83901bbd399063a63c16a64b267bce7}</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">liangfei mo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://lunarsama.ga/docs/book/network.html">https://lunarsama.ga/docs/book/network.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">liangfei mo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/docs/book/network.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            liangfei mo
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/docs/book/network.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            liangfei mo
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">liangfei mo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/lunasama1/blog" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1253896566@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1253896566" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1253896566" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
