@@ -144,6 +144,20 @@
     <ul class="sub-nav menus_item_child ">
       
       <li>
+        <a href="/riyu">
+          
+          <span>日语</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ruanjian">
+          
+          <span>软件工程</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/huibian">
           
           <span>汇编语言</span>
@@ -165,9 +179,9 @@
       </li>
       
       <li>
-        <a href="/jisuanji">
+        <a href="/jisuanjiyuanli">
           
-          <span>计算机系统概论</span>
+          <span>计算机组成原理</span>
         </a>
       </li>
       
@@ -298,6 +312,22 @@
               
                 <li>
 
+                  <a href="/riyu " style="margin-left:75px">
+				  
+		          <span>日语</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/ruanjian " style="margin-left:75px">
+				  
+		          <span>软件工程</span>
+                  </a>
+                </li>
+              
+                <li>
+
                   <a href="/huibian " style="margin-left:75px">
 				  
 		          <span>汇编语言</span>
@@ -322,9 +352,9 @@
               
                 <li>
 
-                  <a href="/jisuanji " style="margin-left:75px">
+                  <a href="/jisuanjiyuanli " style="margin-left:75px">
 				  
-		          <span>计算机系统概论</span>
+		          <span>计算机组成原理</span>
                   </a>
                 </li>
               
@@ -552,7 +582,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-12
+                    2021-03-15
                 </div>
                 
 
@@ -579,6 +609,8 @@
 <p>在DEBUG中，使用U命令将内存中的机器指令翻译成汇编指令</p>
 <p>在DEBUG中，使用T命令执行一条机器指令</p>
 <p>在DEBUG中，使用A命令以汇编指令的格式在内存中写入一条机器指令</p>
+<p>在DEBUG中，使用g命令将程序执行至某处，例：g 0012</p>
+<p>在DEBUG中，使用p命令执行循环</p>
 <h2 id="储存单位与数据关系"><a href="#储存单位与数据关系" class="headerlink" title="储存单位与数据关系"></a>储存单位与数据关系</h2><p>1Byte=8bit    1字=2字节(Byte)      1KB=1024B(Byte)     1MB=1024KB</p>
 <p>基本对应关系：</p>
 <p>!&gt;2^地址总线=寻址能力（Byte）   </p>
@@ -614,6 +646,12 @@
 <p>以下代码为例：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mov ax,2000      令寄存器ax为2000H</span><br><span class="line">mov ds,ax        令数据段寄存器ds为2000H</span><br><span class="line">mov ax,1000      令寄存器ax为1000H</span><br><span class="line">mov ss,ax        令栈段寄存器ss为1000H</span><br><span class="line">mov sp,0         令栈偏移地址sp为0000H</span><br><span class="line">pop [e]          出栈，并将出栈数据放入(ds*16+e)</span><br><span class="line">pop [c]          出栈，并将出栈数据放入(ds*16+c)</span><br></pre></td></tr></tbody></table></figure>
 
+<h2 id="bx-和loop指令"><a href="#bx-和loop指令" class="headerlink" title="[bx]和loop指令"></a>[bx]和loop指令</h2><p>[bx]表示一个内存单元</p>
+<p>mov al,[bx]，即将一个内存单元的内容送入al，这个内存单元的长度为1字节，偏移地址在bx中，段地址在ds中</p>
+<p>()的应用如下：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.(ax)=0010H：         表示ax中的内容为0010H</span><br><span class="line">2.(21000H)=0010H：     表示2000:1000处的内容为0010H</span><br><span class="line">3.(ax)=((ds)*16+2)：   表示mov ax,[2]</span><br><span class="line">4.((ds)*16+2)=(ax)：   表示mov [2],ax</span><br><span class="line">5.(ax)=(ax)+2：        表示add ax,2</span><br><span class="line">6.(ax)=(ax)+(bx)：     表示add ax,bx</span><br><span class="line">7.(sp)=sp-2</span><br><span class="line">  ((ss)*16+(sp))=(ax)  表示push ax</span><br><span class="line">8.(ax)=((ss)*16+(sp))</span><br><span class="line">  (sp)=(sp)+2          表示pop ax</span><br></pre></td></tr></tbody></table></figure>
+
+<p>约定符号idata表示常量</p>
 
                 
             </div>
@@ -869,7 +907,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-15
                             </span>
                         <span class="publish-author">
                             
@@ -907,7 +945,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-15
                             </span>
                         <span class="publish-author">
                             
