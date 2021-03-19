@@ -841,6 +841,25 @@
 <p>静态RAM是用触发器工作原理存储信息，因此即使信息读出后，它保持其原状态，不需要再生。但电源掉电时，原存信息丢失，故它属易失性半导体存储器。</p>
 <p>写入时不论触发器原状态，只要将写入代码送至Din端，在写选择有效时，经两个写放大器，使两端输出为相反电平。当行，列地址选择有效时，使T5，T6，T7，T8导通，并将A与A’点置成完全相反的电平。这样，就把欲写入的信息写入到该基本单元电器中。例子：写入“1”，即Din=1，经过两个写放大器使位线A为高电平，位线A’为低电平，结果使A点为高，A’点为低，即写入了“1”信息。</p>
 <p><img src="/jisuanjiyuanli/index/comp39.png"></p>
+<h3 id="静态RAM读-写时序"><a href="#静态RAM读-写时序" class="headerlink" title="静态RAM读/写时序"></a>静态RAM读/写时序</h3><p>(1)读周期时序</p>
+<p><img src="/jisuanjiyuanli/index/comp40.png"></p>
+<p>下图是2114RAM芯片读周期时序，在整个读周期中<span style="TEXT-DECORATION: overline">WE</span>始终为高电平。读周期Trc是指对芯片进行两次连续读操作的最小间隔时间。读时间Ta表示从地址有效到数据稳定所需的时间，读时间小于与读周期。Tco是从片选有效到输出稳定的时间。可见只有当地址有效经Ta后，且当片选有效经Tco后，数据才能稳定输出，这两者须同时具备。根据Ta和Tco的值，知道地址有效后，经Ta-Tco时间必须给出片选有效信号，否则信号不能出现在数据线上。</p>
+<p><code>从片选失效到输出高阻需一段时间Totd，地址失效后，数据线上的有效数据有一段维持时间Toha，以保证可靠的读取数据</code></p>
+<p><img src="/jisuanjiyuanli/index/comp41.png"></p>
+<p>(2)写周期时序</p>
+<p><img src="/jisuanjiyuanli/index/comp42.png"></p>
+<p>写周期Twc是芯片连续两次写操作的最小间隔时间。写周期包括滞后时间Taw，写入时间Tw和写恢复时间Twr。在有效数据出现前，RAM的数据线上存着前一时刻的数据Dout，在地址线发生变化后<span style="TEXT-DECORATION: overline">CS</span>,<span style="TEXT-DECORATION: overline">WE</span>均需之后Taw再有效，以避免将无效数据写入RAM。但写允许<span style="TEXT-DECORATION: overline">WE</span>失效后，地址必须保持一段时间，即写恢复时间。此外，RAM数据线上的有效数据(Din)须在<span style="TEXT-DECORATION: overline">CS</span>，<span style="TEXT-DECORATION: overline">WE</span>失效前的Tdw时刻，并延续一段时间Tdh(此时地址线有效，Twr&gt;Tdh)，保证数据可靠写入。</p>
+<p><code>不论对存储器进行读操作还是写操作，在读周期和写周期内，地址线上的地址始终不变</code></p>
+<h3 id="动态RAM"><a href="#动态RAM" class="headerlink" title="动态RAM"></a>动态RAM</h3><p>(1)动态RAM的基本单元电路</p>
+<p>RAM基本单元电路有三管式和单管式两种，他们都是靠电容存储电荷的原理来寄存信息。电容上存有足够多的电荷则表示存“1”，电容上无电荷表示存“0”。带内容上的电荷之恶能维持1~2ms，因此信息会自动消失。为此，必须在2ms内对其所有存储单元恢复一次原状态，这个过程称为再生或刷新。</p>
+<p>与静态RAM相比，集成度高，功耗低。</p>
+<p><img src="/jisuanjiyuanli/index/comp43.png"></p>
+<p>读出时，先对预充电管T4置充电信号(在存储矩阵中，每一列共用一个T4管)，使读数据线达高电平Vdd。然后由选择线打开T2，若T1的极间电容Cg存有足够多的电荷(原存“1”)，使T1导通，则因T2，T1导通接地，使读数据线降为零电平，读出“0”信息。若Cg没有足够电荷(原存“0”)，则T1截止，读数据线为高电平，读出“1”信息。</p>
+<p>写入时，将写入信号加到写数据线上，然后写选择线打开T3，这样Cg能随输入信息充电(写“1”)或放电(写“0”)</p>
+<p>为提高集成度，去掉T1，八信息存在电容Cs上，将T2，T3合并为T，得到单管MOS动态RAM基本单元电路。</p>
+<p>读出时，字线上的高电平使T导通，若Cs有电荷经T管在数据线上产生电流，可视为读出“1”.若Cs无电荷，则数据线上无电流，可视为读出“0”.操作结束时，Cs的电荷释放完毕，因此是破坏性读出，须再生。</p>
+<p>写入时，字线为高电平使T导通，若数据线上为高电平，经T管对Cs充电，使其存“1”；若数据线为低电平，Cs经T放电，使其无电荷存“0”.</p>
+<p><img src="/jisuanjiyuanli/index/comp44.png"></p>
 
                 
             </div>
