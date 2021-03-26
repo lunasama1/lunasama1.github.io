@@ -582,7 +582,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-22
+                    2021-03-26
                 </div>
                 
 
@@ -681,6 +681,16 @@
 <p>or 指令：逻辑或运算，有1则置1，其余置0</p>
 <p>mov al,01100011b<br>or al,00111011b</p>
 <p>结果为al:01111011b</p>
+<h3 id="以字符形式给出的数据"><a href="#以字符形式给出的数据" class="headerlink" title="以字符形式给出的数据"></a>以字符形式给出的数据</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data</span><br><span class="line"></span><br><span class="line">data segment</span><br><span class="line">db'unIX'</span><br><span class="line">db'foRK'</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:mov al,'a'</span><br><span class="line">mov bl,'b'</span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在以上程序中“db’unIX’”相当于“db 75H,6EH,49H,58H”，为其对应的ASCII码。</p>
+<p>大小写转换：</p>
+<p>“A”的ASCII码是41H，“a”的ASCII码是61H，因此改变一个字母的大小写改变其对应的ASCII码即可。</p>
+<p><img src="/huibian/index/huibian3.png"></p>
+<p>同样的如果仅用目前的知识可以这样考虑：大写字母的ASCII码的第五位（从右往左数从第0位开始）是0，小写字母的第五位位1。因此通过改变第五位的数字就可以改变字母大小写。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg</span><br><span class="line"></span><br><span class="line">datasg segment</span><br><span class="line">db 'BaSiC'</span><br><span class="line">db 'iNfOrMaTiOn'</span><br><span class="line">datasg ends</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line">start:mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,0</span><br><span class="line">mov cx,5</span><br><span class="line">s:mov al,[bx]</span><br><span class="line">and al,11011111B</span><br><span class="line">mov [bx],al</span><br><span class="line">inc bx</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov bx,5</span><br><span class="line">mov cx,11</span><br><span class="line">s0:mov al,[bx]</span><br><span class="line">or al,00100000B</span><br><span class="line">mov [bx],al</span><br><span class="line">inc bx</span><br><span class="line">loop s0</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="bx-idata"><a href="#bx-idata" class="headerlink" title="[bx+idata]"></a>[bx+idata]</h3><p>可以使用[bx+idata]表示一个内存单元</p>
 
                 
             </div>
@@ -936,7 +946,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-26
                             </span>
                         <span class="publish-author">
                             
@@ -974,7 +984,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-26
                             </span>
                         <span class="publish-author">
                             
