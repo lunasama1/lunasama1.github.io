@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
 </head>
 
 
@@ -645,17 +645,36 @@
 </tr>
 </tbody></table>
 <p>当N是正数时原码，反码和补码均相同</p>
-<p>当N是负数时，第一位用来表示正负，1表示负数，0表示正数，随后反码即将除第一位外的数逐个取反（0-&gt;1）（1-&gt;0），补码则是反码加1，这样可以避免减法</p>
+<p>当N是负数时，加上第一位用来表示正负，1表示负数，0表示正数，随后反码即将除第一位外的数逐个取反（0-&gt;1）（1-&gt;0），补码则是反码加1，这样可以避免减法</p>
 <h2 id="逻辑代数基础"><a href="#逻辑代数基础" class="headerlink" title="逻辑代数基础"></a>逻辑代数基础</h2><p>A和B进行与逻辑运算时可写成Y=A·B</p>
 <p>A和B进行或逻辑运算时可写成T=A+B</p>
 <p>对A进行非逻辑运算时可写成Y=A’</p>
 <p><img src="/shudian/index/shudian2.png"></p>
+<p><img src="/shudian/index/shudian6.png"></p>
 <p>逻辑代数的基本公式：</p>
 <p><img src="/shudian/index/shudian3.png"></p>
 <p>导出的常用公式：</p>
 <p><img src="/shudian/index/shudian4.png"></p>
 <p>常用公式证明：</p>
 <p><img src="/shudian/index/shudian5.png"></p>
+<h3 id="逻辑代数基本定理"><a href="#逻辑代数基本定理" class="headerlink" title="逻辑代数基本定理"></a>逻辑代数基本定理</h3><p>反演定理：</p>
+<p>对于一个逻辑式Y，若将其中所有的“·”换成“+”，“+”换成“·”，0换成1，1换成0，原变量换成反变量，反变量换成原变量，则得到的结果就是Y’。这个归路称为反演定理。</p>
+<p>遵循原则：</p>
+<p>1.需遵守：“先括号，然后乘，最后加”的运算优先次序</p>
+<p>2.不属于单个变量上的反号保留不变</p>
+<h2 id="组合逻辑电路"><a href="#组合逻辑电路" class="headerlink" title="组合逻辑电路"></a>组合逻辑电路</h2><p>根据逻辑功能的不同特点，可以将数字电路分成两大类，一类称为组合逻辑电路（又称组合电路），另一类称为时序逻辑电路（时序电路）。</p>
+<p>组合逻辑电路特点：<code>在组合逻辑电路中，任意时刻的输出仅仅取决于该时刻的输入，与电路原来的状态无关（电路中不包含存储单元）</code></p>
+<p>对于一个多输入多输出的组合逻辑电路，可以用下图表示</p>
+<p><img src="/shudian/index/shudian7.png"></p>
+<p>图中a1，a2，a3···an表示输入变量，y1，y2，···yn表示输出变量。输出与输入间的逻辑可以用一组逻辑函数表示</p>
+<p>y1=f1(a1,a2,a3···,an)<br>y2=f2(a1,a2,a3···,an)<br>y3=f3(a1,a2,a3···,an)<br>·<br>·<br>·<br>yn=fn(a1,a2,a3···,an)</p>
+<p>或者写成向量函数的形式：</p>
+<p>Y=F(A)</p>
+<h2 id="常用逻辑电路模块"><a href="#常用逻辑电路模块" class="headerlink" title="常用逻辑电路模块"></a>常用逻辑电路模块</h2><h3 id="编码器"><a href="#编码器" class="headerlink" title="编码器"></a>编码器</h3><p>在数字系统中，为了区分一系列 不同的事物，将每个事物用一个二值代码表示。在二值逻辑电路中，信号以高，低电平的形式出现。编码器即将高，低电平对应于二进制代码。</p>
+<p>普通编码器：在任何时刻只允许输入一个个编码信号，否则出现混乱。</p>
+<p><code>错误输出不代表电路出错，而是其输入输出关系与目标不同，导致信号出问题。</code></p>
+<p>优先编码器：允许同时输入两个以上的编码信号。在设计优先编码器时已经将所有的输入信号按优先顺序排序，当多个输入信号出现时，只对其中优先级最高的一个进行编码。</p>
+<p>当输入等级为I3时，不管其他输入值如何，只对I3编码<br>当输入等级为I2时，I3一定为0，只对I2编码<br>当输入等级为I1时，I3，I2一定为0，只对I1编码</p>
 
                 
             </div>
