@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
 </head>
 
 
@@ -860,6 +860,90 @@
 <p>读出时，字线上的高电平使T导通，若Cs有电荷经T管在数据线上产生电流，可视为读出“1”.若Cs无电荷，则数据线上无电流，可视为读出“0”.操作结束时，Cs的电荷释放完毕，因此是破坏性读出，须再生。</p>
 <p>写入时，字线为高电平使T导通，若数据线上为高电平，经T管对Cs充电，使其存“1”；若数据线为低电平，Cs经T放电，使其无电荷存“0”.</p>
 <p><img src="/jisuanjiyuanli/index/comp44.png"></p>
+<p>(2)动态RAM芯片举例</p>
+<p>1.三管动态RAM芯片</p>
+<p>这是一个1K*1位的存储芯片，图中每一小方块代表由3个MOS管组成的动态RAM基本单元电路。他们排列成32*32的矩阵，每列有一个刷新放大器和一个预充电管，芯片又10根地址线，采用重合法选择基本单元电路。</p>
+<p><img src="/jisuanjiyuanli/index/comp45.png"></p>
+<p>读出时，先置预充电信号，接着行地址A9~A5经行译码器给出读选择信号，同时由列地址A4~A0经列译码器给出列选择信号。只有在行，列选择信号共同作用下的基本单元电路，才能将信息经读数据线送到读/写控制电路，并从数据线D输出。</p>
+<p>写入时，在受行地址控制的行译码器给出的写选择信号的作用下，选中芯片的某一行，并在列地址的作用下，由列译码器的输出控制读/写控制电路，只将数据线D的信息送到被选中的列的写数据线上，信息即被写入行列共同选中的基本单元电路。</p>
+<p>2.单管动态RAM芯片</p>
+<p>这是一个16K*1位的存储芯片，为了减少芯片封装的引脚数，地址线从14根减至7根。因此地址信息先将7位行地址送到行地址缓存器，再将7位列地址保存到列地址缓存器中。芯片内有时序电路，它受行地址选通<span style="TEXT-DECORATION: overline">RAS</span>，列地址选通<span style="TEXT-DECORATION: overline">CAS</span>,以及写允许信号<span style="TEXT-DECORATION: overline">WE</span>,控制。</p>
+<p>16K*1位的存储芯片共有16K个单管MOS基本单元电路，他们排列成128*128的矩阵。行线即图4.18中的字线，列线即图4.18中的数据线。128行分布在读放大器的两侧（左侧为0~63行，右侧为64~127行）。每根行选择线与128个MOS管栅极相连。128列共有128个读放大器，他的两侧又分别与64个MOS管相连，没跟列线上有一个列地址选择管。128个列地址选择管的输出又相互并接在一起与I/O缓冲器相连，I/O缓冲器的一端接输出驱动器，可输出数据；另一端接输入器，供数据输入。</p>
+<p><img src="/jisuanjiyuanli/index/comp46.png"></p>
+<p>读出时，行列地址受<span style="TEXT-DECORATION: overline">RAS</span>和<span style="TEXT-DECORATION: overline">CAS</span>控制，分两次分别存入行，列缓存器。行地址经行译码后选中一行，使该行上所有的MOS管均导通，并分别将其电容C上的电荷反映到128个读放大器的某一侧（0~63行反映到读放大器的左侧，64~127行反映到读放大器的右侧）。读放大器的工作原理类似于一个触发器，使其两侧电平相反。列地址经列译码后选中某一列，该列上的列地址选择管导通，即可将读放大器右侧信号经读/写线，I/O缓冲器输出至Dout端。</p>
+<p>写入时，行，列地址也要分别送入芯片内的行，列地址缓存器，经译码可选中某行，某列。出入信息Din通过数据输入其，经I/O缓冲器送至读/写线上，但只有被选中的列地址选择管导通，可将读/写线上的信息送至列的读放大器右侧，破坏读放大器的平衡，使读放大器的右侧与输入信息相同，左侧与输入信息反向，读放大器的信息就可写入到选中行的C中。</p>
+<p><img src="/jisuanjiyuanli/index/comp47.png"></p>
+<p>3.动态RAM时序</p>
+<p>动态RAM的行，列地址是分别传送的，因此分析时序时，需要注意<span style="TEXT-DECORATION: overline">RAS</span>和<span style="TEXT-DECORATION: overline">CAS</span>与地址的关系，即：</p>
+<p>·先由<span style="TEXT-DECORATION: overline">RAS</span>将行地址送入行地址缓存器，再由<span style="TEXT-DECORATION: overline">CAS</span>将列地址送入列地址缓存器，因此<span style="TEXT-DECORATION: overline">CAS</span>滞后于<span style="TEXT-DECORATION: overline">RAS</span>的时间必须要超过其规定值</p>
+<p>·<span style="TEXT-DECORATION: overline">RAS</span>和<span style="TEXT-DECORATION: overline">CAS</span>正，负电平的宽度要大于规定值，以保证芯片内部正常工作。</p>
+<p>·行地址对<span style="TEXT-DECORATION: overline">RAS</span>的下降沿以及列地址对<span style="TEXT-DECORATION: overline">CAS</span>的下降沿应有足够的地址建立时间和地址保持时间，以确定行，列地址均能准确写入芯片。</p>
+<p>（1）读时序</p>
+<p>在读工作方式时（写允许<span style="TEXT-DECORATION: overline">WE</span>=1），读工作周期是指动态RAM完成一次“读”所需的最短时间Tcro，也是<span style="TEXT-DECORATION: overline">RAS</span>的一个周期。为了确保读出数据无误，要求写允许<span style="TEXT-DECORATION: overline">WE</span>=1在列地址送入前（<span style="TEXT-DECORATION: overline">CAS</span>下降沿到来前）建立，而<span style="TEXT-DECORATION: overline">WE</span>=1的撤除应在<span style="TEXT-DECORATION: overline">CAS</span>失效后（<span style="TEXT-DECORATION: overline">CAS</span>上升沿后）；还要求读出数据应在<span style="TEXT-DECORATION: overline">RAS</span>有效后的一段时间Tras且<span style="TEXT-DECORATION: overline">CAS</span>有效后一段时间Tcas时出现，而数据有效的撤出时间应在<span style="TEXT-DECORATION: overline">CAS</span>失效后一段时间Tcas-out。</p>
+<p><img src="/jisuanjiyuanli/index/comp48.png"></p>
+<p>（2）写时序</p>
+<p>在写工作方式时（写允许<span style="TEXT-DECORATION: overline">WE</span>=0），<span style="TEXT-DECORATION: overline">RAS</span>的一个周期Tcwn记为写工作周期。</p>
+<p>为了确保写入数据准确无误，<span style="TEXT-DECORATION: overline">WE</span>=0应先于<span style="TEXT-DECORATION: overline">CAS</span>=0，<br>而且数据的有效存在时间应与<span style="TEXT-DECORATION: overline">CAS</span>及<span style="TEXT-DECORATION: overline">WE</span>的有效相对应，即写入数据应在<span style="TEXT-DECORATION: overline">CAS</span>有效前的一段时间Tdin-cas出现，保持时间为<span style="TEXT-DECORATION: overline">CAS</span>有效后的一段时间Tdin-cas，这是因为数据的写入实际上是由<span style="TEXT-DECORATION: overline">CAS</span>的下降沿激发而成的。为了保证正常写入，<span style="TEXT-DECORATION: overline">WE</span>，<span style="TEXT-DECORATION: overline">CAS</span>有效均要大于数据Din有效的时间。</p>
+<p><img src="/jisuanjiyuanli/index/comp49.png"></p>
+<p>4.动态RAM刷新</p>
+<p>刷新的过程实质上是先将原存信息读出，再由刷新放大器形成原信息并重新写入的过程。</p>
+<p>由于存储单元被访问时随机的，可能某些存储单元长期未访问，不进行存储器的读/写操作，其存储单元内的原信息将会缓慢消失。为此，采用定时刷新的方法，规定在一定的时间内，对动态RAM的全部基本单元电路做一次刷新，一般取2ms，这个时间称为刷新周期或再生周期。刷新按行进行，必须在刷新周期内，由专用的刷新电路来完成对基本单元电路的逐行刷新，才能保证动态RAM内的信息不丢失。通常有三种刷新方式：集中刷新，分散刷新和异步刷新。</p>
+<p>(1)集中刷新</p>
+<p>在规定的一个刷新周期内，逐行刷新且必须停止读/写操作（被称为死时间）。</p>
+<p>例子：存取周期为0.5us，刷新周期为2ms，对128行刷新要64us其余的1936us用来读/写或维持信息。（快到两秒时暂停读取操作进行刷新）</p>
+<p>死时间所占比率为：128/4000=3.2%（按存储周期算）</p>
+<p><img src="/jisuanjiyuanli/index/comp50.png"></p>
+<p>(2)分散刷新</p>
+<p>指对每行存储单元的刷新分散到每个存取周期内完成（完成读写操作后刷新）。可把机器的存取周期T=Tw(读、写或维持信息)+Tr(刷新)。</p>
+<p>例子：读/写周期为0.5us，则存取周期为1us，以128*128的矩阵芯片为例，128us即可全部刷新，且不存在停止操作导致的死时间。但存取周期长了，系统速度下降。</p>
+<p><img src="/jisuanjiyuanli/index/comp51.png"></p>
+<p>(3)异步刷新</p>
+<p>全体以2ms为刷新周期，下一次刷新循环到这一行，需要128次刷新周期。</p>
+<p>异步刷新间隔为2ms（固定不变），在2ms内对128行个刷新一遍，即每个15.6us刷新一行，对每行而言刷新时间仍为0.5us，刷新间隔为2ms，而每行死时间变为0.5us。</p>
+<p><img src="/jisuanjiyuanli/index/comp52.png"></p>
+<p>而且将动态RAM的刷新安排在CPU对指令的译码阶段(此时CPU不访问存储器)，克服了分散刷新独占0.5us刷新从而使周期加长的缺点，又不会出现集中刷新中的死区问题。</p>
+<h3 id="动态RAM和静态RAM"><a href="#动态RAM和静态RAM" class="headerlink" title="动态RAM和静态RAM"></a>动态RAM和静态RAM</h3><p>动态RAM的应用比静态RAM广泛，动态RAM的优点：</p>
+<p>1.动态RAM的集成度远高于静态RAM。</p>
+<p>2.动态RAM行，列地址按先后顺序输送，减少了芯片引脚，封装尺寸。</p>
+<p>3.动态RAM的功耗比静态RAM小</p>
+<p>4.动态RAM的价格比静态RAM的价格偏移。</p>
+<p>动态RAM的缺点：</p>
+<p>1.使用动态原件（电容），速度比静态RAM低</p>
+<p>2.动态RAM需要再生，要配置再生电路需消耗功率。通常容量不大的高速缓冲存储器多用静态RAM实现。</p>
+<h3 id="只读存储器"><a href="#只读存储器" class="headerlink" title="只读存储器"></a>只读存储器</h3><p>1.掩膜ROM</p>
+<p>下图采用重合法驱动，行列地址线分别经行列译码器，各32根行，列选择线。行列选择线交叉处可有耦合MOS管，也可没有。32各列控制管共连一个读放大器。</p>
+<p><img src="/jisuanjiyuanli/index/comp53.png"></p>
+<p>2.PROM</p>
+<p>指可以实现一次性编程的只读存储器，如图为一个双极型电路和熔丝构成的基本单元电路。基极由行线控制，发射极与列线之间形成了一条熔丝。以熔断与未断区分所存信息为“1”或“0”</p>
+<p><img src="/jisuanjiyuanli/index/comp54.png"></p>
+<p>3.EPROM</p>
+<p>指可擦除可编程只读存储器。可由用户对其所存信息作任意次改写。下图为由浮动栅雪崩注入型MOS管称FAMOS</p>
+<p><img src="/jisuanjiyuanli/index/comp55.png"></p>
+<p>在漏端D加正电压会形成一个浮动栅，阻止了源S与漏D之间的导通，此时MOS管处于“0”状态。若对D端不加正电压，此时导通处于“1”状态。</p>
+<h3 id="存储器与CPU的连接"><a href="#存储器与CPU的连接" class="headerlink" title="存储器与CPU的连接"></a>存储器与CPU的连接</h3><p>1.存储容量扩展</p>
+<p><code>位扩展</code>：指增加存储字长，例如，两片1K*4位的芯片可组成1K*8位存储器。</p>
+<p>图中两片2114的地址线A9~A0,<span style="TEXT-DECORATION: overline">CS</span>和<span style="TEXT-DECORATION: overline">WE</span>分别连在一起，其中一片数据线作为高4位D7~D4，另一片作为低四位D3~D0，以构成1K*8位处理器。</p>
+<p><img src="/jisuanjiyuanli/index/comp56.png"></p>
+<p><code>字扩展</code>：指增加存储器字的数量。例如，两片1K*8位的存储芯片可组成2K*8位存储器。</p>
+<p>将A10作为片选信号。由于存储芯片的片选输入端要求低电平有效，故当A10位低电平时，<span style="TEXT-DECORATION: overline">CS0</span>，选中左边1K*8位芯片；当A10为高电平时，反相后<span style="TEXT-DECORATION: overline">CS1</span>有效，选中右边1K*8位芯片。</p>
+<p><img src="/jisuanjiyuanli/index/comp57.png"></p>
+<p><code>字，位扩展</code>：指既增加存储字的数量又增加存储字长。</p>
+<p><img src="/jisuanjiyuanli/index/comp58.png"></p>
+<p>每两片构成一组1K*8位存储器，四组构成4K*8位的存储器。地址线A11，A10经片选译码器得到4个片选信号<span style="TEXT-DECORATION: overline">CS0</span>，<span style="TEXT-DECORATION: overline">CS1</span>，<span style="TEXT-DECORATION: overline">CS2</span>，<span style="TEXT-DECORATION: overline">CS3</span>，分别选择其中1K*8位的存储芯片。<span style="TEXT-DECORATION: overline">WE</span>为读写控制信号。</p>
+<p><code>存储器与CPU连接</code>：需要注意片与片之间的地址线，数据线和控制线的连接。</p>
+<p>1.地址线的连接</p>
+<p>存储芯片的容量与其地址线数相关；CPU的地址线数常比存储芯片的地址线数多。</p>
+<p>通常将CPU地址线的低位与存储芯片的地址线相连。CPU地址线的高位或在存储芯片扩充时用，或做其他用途，如片选信号。</p>
+<p>2.数据线的连接</p>
+<p>CPU的数据线数与存储芯片的数据线数不一定相等。此时，须对存储芯片扩位，使其数据位数与CPU的数据线数相同。</p>
+<p>3.读/写命令线的连接</p>
+<p>CPU读/写命令线一般可直接与存储芯片的读/写控制端相连，通常高电平为读，低电平为写。有些CPU的读/写命令是分开的，此时CPU的读命令线与存储芯片的允许读控制端相连，而CPU的写命令线与存储芯片的允许写控制端相连。</p>
+<p>4.片选线的连接</p>
+<p>片选线的连接时CPU和存储芯片正确工作的关键。存储器由许多存储芯片组成，哪一片被选中取决于该存储芯片的片选控制端<span style="TEXT-DECORATION: overline">CS</span>是否能接收到来自CPU的片选有效信号。</p>
+<p>片选有效信号与CPU的访存控制信号<span style="TEXT-DECORATION: overline">MREQ</span>（低电平有效）有关，只有当CPU要求访存时，才选择存储芯片。若CPU访问I/O，则<span style="TEXT-DECORATION: overline">MREQ</span>为高电平，表示不要求存储器工作。此外，片选有效信号和地址有关，CPU的地址线往往多余存储芯片的地址线，故未与存储芯片连接的高位地址必须和访存控制信号共同产生存储芯片的片选信号。通常用到一些逻辑电路，如译码器及其他各种门电路，来产生片选有效信号。</p>
+<p>5.合理选择存储芯片</p>
+<p>指存储芯片类型和数量的选择。通常选用ROM存放系统程序，标准子程序和各类常数。RAM是为用户编程而设置的。此外还需考虑连线简单；CPU和存储芯片时序的配合，速度，负载匹配等问题。</p>
+<h2 id="寄存器校验"><a href="#寄存器校验" class="headerlink" title="寄存器校验"></a>寄存器校验</h2><h3 id="汉明码"><a href="#汉明码" class="headerlink" title="汉明码"></a>汉明码</h3><p>一种编码是否具有检测能力和纠错能力，与编码的最小距离有关。编码最小距离指在一种编码系统中，任意两组合法代码之间的最少二进制位数的差异。</p>
 
                 
             </div>

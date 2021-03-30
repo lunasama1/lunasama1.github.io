@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
 </head>
 
 
@@ -582,7 +582,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-27
+                    2021-03-29
                 </div>
                 
 
@@ -799,6 +799,29 @@
 <p>db 重复的次数 dup (重复的字节型数据)<br>dw 重复的次数 dup (重复的字型数据)<br>dd 重复的次数 dup (重复的双字型数据)</p>
 <p>因此在定义一个200字节的栈段时，可以通过dup化简程序</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stack segment</span><br><span class="line">db 200 dup (0)</span><br><span class="line">stack ends</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="转移指令原理"><a href="#转移指令原理" class="headerlink" title="转移指令原理"></a>转移指令原理</h2><p>可以修改IP或者同时修改CS:IP的指令称为转移指令。</p>
+<p>只修改IP时，称为段内转移，比如：jmp ax</p>
+<p>同时修改CS和IP时，称为段间转移，比如：jmp 1000:0</p>
+<p>段内转移又分为：短转移和近转移</p>
+<p>短转移IP的修改范围为-128~127</p>
+<p>近转移IP的修改范围为-32768~32767</p>
+<p><code>转移指令分类：</code></p>
+<p>1.无条件转移指令：jmp<br>2.条件转移指令<br>3.循环指令<br>4.过程<br>5.中断</p>
+<h3 id="操作符offset"><a href="#操作符offset" class="headerlink" title="操作符offset"></a>操作符offset</h3><p>操作符offset再汇编语言中是由编译器处理的符号，他的功能是取得标号的偏移地址。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line">codesg segment</span><br><span class="line"></span><br><span class="line">start:mov ax,offset start  #相当于mov ax,0</span><br><span class="line">s:mov ax,offset s          #相当于mov ax,3</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在上面的程序中offset取得了符号start和s的偏移地址0和3，所以指令可以分别等价于mov ax,0;mov ax,3</p>
+<p>nop指令对应的机器码占一个字节</p>
+<h3 id="jmp指令"><a href="#jmp指令" class="headerlink" title="jmp指令"></a>jmp指令</h3><p>jmp为无条件转移指令，可以只修改IP，也可以同时修改CS和IP</p>
+<p>jmp指令要给出两个信息：<br>1.转移的目的地址<br>2.转移的距离</p>
+<p>jmp short 标号（转到标号处执行指令）</p>
+<p>这种格式的jmp指令实现的时段内短转移，它对IP的修改范围为-128~127，也就是说，向前最多可以越过128个字节，向后转移最多越过127个字节。short说明指令进行的是短转移。标号指明指令要转移的地址，转移指令结束后CS:IP指向标号处的指令。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line">codesg segment</span><br><span class="line"></span><br><span class="line">start:mov ax,0</span><br><span class="line">jmp short s</span><br><span class="line">add ax,1</span><br><span class="line">s:inc ax</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+
+<p>程序值进行一次ax+1操作，此处jmp short s对应于机器码EB03，此机器码中不含转移的目标地址。因此说明CPU在执行jmp指令的时候并不需要转移的目的地址。</p>
+<p>jmp short s的指令读取和执行过程：</p>
+<p>1.(CS)=0BBDH,(IP)=0006H,CS:IP指向EB03（对应的机器码）<br>2.读取指令码EB03进入指令缓冲器<br>3.(IP)=(IP)+所读取指令的长度=(IP)+2=0008H，CS:IP指向add ax,1<br>4.CPU执行指令缓冲器中的指令EB 03；<br>5.指令EB03执行后，(IP)=000BH，CS:IP指向inc ax</p>
 
                 
             </div>
@@ -1054,7 +1077,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
                             </span>
                         <span class="publish-author">
                             
@@ -1092,7 +1115,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
                             </span>
                         <span class="publish-author">
                             
