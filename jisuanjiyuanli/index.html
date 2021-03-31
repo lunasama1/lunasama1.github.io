@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
 </head>
 
 
@@ -943,7 +943,214 @@
 <p>片选有效信号与CPU的访存控制信号<span style="TEXT-DECORATION: overline">MREQ</span>（低电平有效）有关，只有当CPU要求访存时，才选择存储芯片。若CPU访问I/O，则<span style="TEXT-DECORATION: overline">MREQ</span>为高电平，表示不要求存储器工作。此外，片选有效信号和地址有关，CPU的地址线往往多余存储芯片的地址线，故未与存储芯片连接的高位地址必须和访存控制信号共同产生存储芯片的片选信号。通常用到一些逻辑电路，如译码器及其他各种门电路，来产生片选有效信号。</p>
 <p>5.合理选择存储芯片</p>
 <p>指存储芯片类型和数量的选择。通常选用ROM存放系统程序，标准子程序和各类常数。RAM是为用户编程而设置的。此外还需考虑连线简单；CPU和存储芯片时序的配合，速度，负载匹配等问题。</p>
-<h2 id="寄存器校验"><a href="#寄存器校验" class="headerlink" title="寄存器校验"></a>寄存器校验</h2><h3 id="汉明码"><a href="#汉明码" class="headerlink" title="汉明码"></a>汉明码</h3><p>一种编码是否具有检测能力和纠错能力，与编码的最小距离有关。编码最小距离指在一种编码系统中，任意两组合法代码之间的最少二进制位数的差异。</p>
+<h3 id="寄存器校验与汉明码"><a href="#寄存器校验与汉明码" class="headerlink" title="寄存器校验与汉明码"></a>寄存器校验与汉明码</h3><p>一种编码是否具有检测能力和纠错能力，与编码的最小距离有关。编码最小距离指在一种编码系统中，任意两组合法代码之间的最少二进制位数的差异。</p>
+<p><code>任何一种编码是否具有检测能力和纠错能力，与编码的最小距离有关</code></p>
+<p>L-1=D+C 且 D&gt;=C</p>
+<p>即编码最小距离L越大，其检测错误的位数D越大，纠正错误的位数C也越大，且纠错能力恒小于或等于检错能力。</p>
+<p>例子：设检测的二进制代码为n位，为使其具有纠错能力，需增添K位检测位，组成n+k位的代码。且新增添的检测位数k应满足：2^k&gt;=n+k+1</p>
+<p>因此可以求得对不同代码长度n所需的检测位的位数k：</p>
+<table>
+<thead>
+<tr>
+<th align="center">n</th>
+<th align="center">k(最小)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">2~4</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">5~11</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">12~26</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">27~57</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="center">58~120</td>
+<td align="center">7</td>
+</tr>
+</tbody></table>
+<p>设n+k位代码从左至右一次编为第1，2，3···，n+k位，而将k位检测位记作Ci(i=1,2,4,8,···)，分别安插在n+k位代码编号的第1，2，4，8···，2^k-1位上。</p>
+<p>以下计算为配偶原则：</p>
+<p><img src="/jisuanjiyuanli/index/comp59.png"></p>
+<p>C1检测的小组包括：1，3，5，7，9，11，13，15···位</p>
+<p>C2检测的小组包括：2，3，6，7，10，11，14，15···位</p>
+<p>C4检测的小组包括：4，5，6，7，12，13，14，15···位</p>
+<p>C8检测的小组包括：8，9，10，11，12，13，14，15···位</p>
+<p>因此逐列，逐行进行排除可以知道哪里是错误比特。</p>
+<p>以信息0101(B4,B3,B2,B1)为例：</p>
+<p>应配置为C1,C2,B4,C4,B3,B2,B1</p>
+<p>画出对应图像：</p>
+<table>
+<thead>
+<tr>
+<th align="center">整体奇偶校验位</th>
+<th align="center">C1</th>
+<th align="center">C2</th>
+<th align="center">B4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">C4</td>
+<td align="center">B3</td>
+<td align="center">B2</td>
+<td align="center">B1</td>
+</tr>
+</tbody></table>
+<p>带入信息：</p>
+<table>
+<thead>
+<tr>
+<th align="center">整体奇偶校验位</th>
+<th align="center">C1</th>
+<th align="center">C2</th>
+<th align="center">0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">C4</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<p>计算辖区，得出结果：</p>
+<table>
+<thead>
+<tr>
+<th align="center">1</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<p>扩展的汉明码：</p>
+<p><img src="/jisuanjiyuanli/index/comp60.png"></p>
+<p>汉明码纠错：</p>
+<p>按流程比对C1,C2,C4,C8及其辖区，重新计算一次，若发现错误则与对应的Ci不同</p>
+<table>
+<thead>
+<tr>
+<th align="center">0</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<p>首先查看C1及其辖区：</p>
+<p>C1为0，对应辖区之和为偶数，因此正确</p>
+<p>C2为1，对应辖区之和为偶数，故错误，因此错误在右侧第二列</p>
+<p>C4为1，对应辖区之和为奇数，故正确，故错误格在2和10</p>
+<p>C8为1，对应辖区之和为偶数，故错误，因此错误在第10格，因此将其反转。</p>
+<p>以配奇原则为例：</p>
+<p>1100101，n=7故需要添加k=4位检测位，</p>
+<p>插入检测位：C1,C2,1,C4,1,0,0,C8,1,0,1</p>
+<p>然后进行计算：</p>
+<table>
+<thead>
+<tr>
+<th align="center">1</th>
+<th align="center">C1</th>
+<th align="center">C2</th>
+<th align="center">1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">C4</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">C8</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<p>计算得：C1=1，C2=1，C4=0，C8=1</p>
+<p>故汉明码为：1110 1001 101</p>
+<h2 id="提高访存速度"><a href="#提高访存速度" class="headerlink" title="提高访存速度"></a>提高访存速度</h2><p>为了提高访存速度，除了寻找高速原件和采用层次结构以外，调整主存的结构也可提高访存速度。</p>
+<p>1.单体多字系统</p>
+<p>程序和数据在存储体内是连续存放的，因此CPU访存取出的信息也是连续的，因此在一个存取周期内，从同一地址取出4条指令，逐条送至CPU执行（每隔1/4个存取周期，主存向CPU发送指令）</p>
+<p><img src="/jisuanjiyuanli/index/comp61.png"></p>
+<p>图中为一个单体四字结构的存储器，每字W位。按地址一个存取周期读出4*W位指令或数据，使主存带宽提高到4倍。</p>
+<p>但显然这要求指令和数据在主存内必须是连续存放的，一旦遇到转移指令，或者操作数不能连续存放，这种方法的效果会下降。</p>
+<p>2.多体并行系统</p>
+<p>多体并行系统采用多体模块组成的存储器。每个模块有相同的容量和存取速度，各模块各自有独立的地址寄存器(MAR)，数据寄存器(MDR)，地址译码，驱动电路和读/写电路，能并行工作，也能交叉工作。</p>
+<p>并行工作同时访问N各模块，同时启动，同时读出，完全并行工作。（同时读出的N个字需要在总线上分时传送）</p>
+<p>下图是适合于并行工作的高位交叉编址的多体寄存器结构示意图：</p>
+<p><img src="/jisuanjiyuanli/index/comp62.png"></p>
+<p>图中程序按体内地址顺序存放（一个体存满后，再存入下一个体），因此可理解为顺序存储。因此高位地址表示体号，低位地址表示体内地址。当CPU与一个体交换信息时，另一个体可同时与外部设备进行直接存储器访问，实现并行工作。</p>
+<p>这种编址方式由于一个体内的段地址是连续的，因此有利于存储器的扩充。</p>
+<p>下图是按低位交叉编址的多体模块结构示意图。由于程序连续存放在相邻体中，故称交叉存储。低位地址用来表示体号，高位地址表示体内地址。这种编址方式称为模M编址（M为模块数，一般取2的幂次，使电路简单）。</p>
+<table>
+<thead>
+<tr>
+<th align="center">体号</th>
+<th align="center">体内地址序号</th>
+<th align="center">最低两位地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">M0</td>
+<td align="center">0,4,8···,4i+0</td>
+<td align="center">00</td>
+</tr>
+<tr>
+<td align="center">M1</td>
+<td align="center">1,5,9···,4i+1</td>
+<td align="center">01</td>
+</tr>
+<tr>
+<td align="center">M2</td>
+<td align="center">2,6,10···,4i+2</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td align="center">M3</td>
+<td align="center">3,7,11···,4i+3</td>
+<td align="center">11</td>
+</tr>
+</tbody></table>
+<p><img src="/jisuanjiyuanli/index/comp63.png"></p>
 
                 
             </div>
