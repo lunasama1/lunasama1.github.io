@@ -8,7 +8,7 @@
       <link href="2021/04/07/archlinux/"/>
       <url>2021/04/07/archlinux/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>yay -Syu  同步更新</p><p>在安裝使用docsify 和 hexo前，需要先：</p><p>nodejs yay -S nodejs-lts-fermium</p><p>npm yay -S npm</p><p>然后使用sudo npm i docsify-cli -g</p><p>sudo npm install hexo-cli -g</p><p>然后进入vscode所在文件夹，按官方文档流程安装</p><h2 id="zsh的安装"><a href="#zsh的安装" class="headerlink" title="zsh的安装"></a>zsh的安装</h2><p>sudo apt install zsh gcc g++ gdb python python3 python-pip python3-pip</p><p>sh -c “$(curl -fsSL <a href="https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;">https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</a></p><p>然后安装：syntax-highlighting &amp; zsh-autosuggestions</p><p>‘’’<br>git clone <a href="https://github.com/zsh-users/zsh-syntax-highlighting.git">https://github.com/zsh-users/zsh-syntax-highlighting.git</a> ${ZSH_CUSTOM:-<del>/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting &amp;&amp; git clone <a href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions</a> ${ZSH_CUSTOM:-</del>/.oh-my-zsh/custom}/plugins/zsh-autosuggestions &amp;&amp; chmod -R 555 ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting &amp;&amp; chmod -R 555 ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions<br>‘’’</p><p>进入文件zshrc编辑：</p><p>进入文件指令：nano ~/.zshrc</p><p>编辑内容：plugins=(git z colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)</p><p>使配置生效：</p><p>source ~/.zshrc</p><p>然后进入命令行输入：</p><p>where zsh</p><p><img src="/png/arch1.png"></p>]]></content>
       
       
       
