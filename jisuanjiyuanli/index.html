@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.1k
+                    17.3k
                 </div>
                 
 
@@ -1161,7 +1161,11 @@
 <p>交叉存储器所花时间为：200ns+50ns*(4-1)=350ns=3.5*10^-7s</p>
 <p>顺序存储器的带宽为：128/(8*10^-7)=16*10^7 bps</p>
 <p>交叉存储器的带宽为：128/(3.5*10^-7)=37*10^7 bps</p>
-<p>git remote add origin <a target="_blank" rel="noopener" href="https://github.com/lunasama1/lunasama1.github.io.git">https://github.com/lunasama1/lunasama1.github.io.git</a></p>
+<h2 id="高速缓冲存储器"><a href="#高速缓冲存储器" class="headerlink" title="高速缓冲存储器"></a>高速缓冲存储器</h2><p>缓存出现背景：</p>
+<p>提前将CPU要取的信息送至缓存，在主存和I/O设备交换时，CPU可直接使用缓存中的信息，提高使用效率</p>
+<h3 id="cache的工作原理"><a href="#cache的工作原理" class="headerlink" title="cache的工作原理"></a>cache的工作原理</h3><p>主存由2^n个可编址的字组成，每个字有唯一的n为地址。为了与cache映射，将主存与缓存分成若干块，每块内包含若干个字，并使它们的块字数相同。主存的地址分成两块：高m位表示主存的块地址，低b位表示块内地址，2^m=M表示主存的块数。缓存也分两段，高c位表示缓存的块号，低b位表示块内地址，2^c=C表示缓存块数，且c远小于M。二者用b位表示块内字数，B=2^b反映了块的大小，称块长。</p>
+<p><img src="./index/comp68.png"></p>
+<p>CPU读取主存某字时有两种情况：1.所需字在缓存中直接诶访问Cache（通常一次传一个字）；2.所需的字不在Cache内，此时须将该字所在字块整个字块一次调入Cache中（Cache与主存之间是字块传送）</p>
 
                 
             </div>
