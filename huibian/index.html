@@ -29,10 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -138,7 +135,7 @@
       
       <i class="fas fa-list" style="zoom: 0.6;"></i>
       
-      <span>Notes</span>
+      <span>Medias</span>
       <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
     <ul class="sub-nav menus_item_child ">
@@ -147,13 +144,6 @@
         <a href="/riyu">
           
           <span>日语</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/ruanjian">
-          
-          <span>软件工程</span>
         </a>
       </li>
       
@@ -305,7 +295,7 @@
 			
 				<i class="fa-fw fas fa-list"></i>
 			
-			Notes
+			Medias
 			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
             <ul  style="background:  ;" >
@@ -315,14 +305,6 @@
                   <a href="/riyu " style="margin-left:75px">
 				  
 		          <span>日语</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/ruanjian " style="margin-left:75px">
-				  
-		          <span>软件工程</span>
                   </a>
                 </li>
               
@@ -582,12 +564,17 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-29
+                    2021-04-06
                 </div>
                 
 
                 
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.4k
+                </div>
                 
 
                 
@@ -613,7 +600,7 @@
 <p>在DEBUG中，使用p命令执行循环</p>
 <p>在汇编源程序中，数据不能以字母开头，因此要补0</p>
 <p>在汇编程序中，不能直接将内存中的数据直接放入段寄存器中，因此需要如下转换：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax,a</span><br><span class="line">mov ss,ax</span><br><span class="line"></span><br><span class="line">其中a为定义的数据段</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax,a</span><br><span class="line">mov ss,ax</span><br><span class="line"></span><br><span class="line">其中a为定义的数据段</span><br></pre></td></tr></table></figure>
 
 <p>AH&amp;AL＝AX(accumulator)：累加寄存器<br>BH&amp;BL＝BX(base)：基址寄存器<br>CH&amp;CL＝CX(count)：计数寄存器<br>DH&amp;DL＝DX(data)：数据寄存器<br>SP（Stack Pointer）：堆栈指针寄存器<br>BP（Base Pointer）：基址指针寄存器<br>SI（Source Index）：源变址寄存器<br>DI（Destination Index）：目的变址寄存器<br>IP（Instruction Pointer）：指令指针寄存器<br>CS（Code Segment）代码段寄存器<br>DS（Data Segment）：数据段寄存器<br>SS（Stack Segment）：堆栈段寄存器<br>ES（Extra Segment）：附加段寄存器</p>
 <h2 id="储存单位与数据关系"><a href="#储存单位与数据关系" class="headerlink" title="储存单位与数据关系"></a>储存单位与数据关系</h2><p>1Byte=8bit    1字=2字节(Byte)      1KB=1024B(Byte)     1MB=1024KB</p>
@@ -628,53 +615,53 @@
 <p>CS是告诉CPU，去哪个位置找内容当成指令去执行；<br>DS是告诉CPU，去哪个位置找内容当成数据被使用。</p>
 <h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>任何时刻，SS:SP指向栈顶元素=SS:SP指向栈空间最高地址单元的下一个单元</p>
 <p>push入栈指令：</p>
-<p><img src="/huibian/index/huibian1.png"></p>
+<p><img src="./index/huibian1.png"></p>
 <p>pop出栈指令：</p>
-<p><img src="/huibian/index/huibian2.png"></p>
+<p><img src="./index/huibian2.png"></p>
 <p>栈顶超界问题：</p>
 <p>8086CPU不保我们对栈的操作不会超界，它只考虑当前的情况，当前的栈顶在何处，当前要执行的指令是哪一条</p>
 <p>对于栈的处理命令(push,pop)本质上是对内存的传送指令</p>
 <p>因此一下代码等价：</p>
 <p>直接访问内存单元：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax,1000H</span><br><span class="line">mov ds,ax</span><br><span class="line">mov ax,2266H</span><br><span class="line">mov [0],ax</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax,1000H</span><br><span class="line">mov ds,ax</span><br><span class="line">mov ax,2266H</span><br><span class="line">mov [0],ax</span><br></pre></td></tr></table></figure>
 
 <p>使用栈段寄存器访问：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov ax,1000H</span><br><span class="line">mov ss,ax</span><br><span class="line">mov sp,2</span><br><span class="line">mov ax,2266H</span><br><span class="line">push ax</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov ax,1000H</span><br><span class="line">mov ss,ax</span><br><span class="line">mov sp,2</span><br><span class="line">mov ax,2266H</span><br><span class="line">push ax</span><br></pre></td></tr></table></figure>
 
 <p>一个栈段最大可以设FFFFH，最大容量为64KB</p>
 <p>详细区分push和pop:</p>
 <p>push:</p>
 <p>以下代码为例：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mov ax,1000      令寄存器ax为1000H</span><br><span class="line">mov ds,ax        令数据段寄存器ds为1000H</span><br><span class="line">mov ax,2000      令寄存器ax为2000H</span><br><span class="line">mov ss,ax        令栈段寄存器ss为2000H</span><br><span class="line">mov sp,10        令栈偏移地址sp为0010H</span><br><span class="line">push [0]         从1000:0处读取数据(使用ds*16+0)并放入栈中</span><br><span class="line">push [2]         从1000:2处读取数据(使用ds*16+2)并放入栈中</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mov ax,1000      令寄存器ax为1000H</span><br><span class="line">mov ds,ax        令数据段寄存器ds为1000H</span><br><span class="line">mov ax,2000      令寄存器ax为2000H</span><br><span class="line">mov ss,ax        令栈段寄存器ss为2000H</span><br><span class="line">mov sp,10        令栈偏移地址sp为0010H</span><br><span class="line">push [0]         从1000:0处读取数据(使用ds*16+0)并放入栈中</span><br><span class="line">push [2]         从1000:2处读取数据(使用ds*16+2)并放入栈中</span><br></pre></td></tr></table></figure>
 
 <p>pop:</p>
 <p>以下代码为例：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mov ax,2000      令寄存器ax为2000H</span><br><span class="line">mov ds,ax        令数据段寄存器ds为2000H</span><br><span class="line">mov ax,1000      令寄存器ax为1000H</span><br><span class="line">mov ss,ax        令栈段寄存器ss为1000H</span><br><span class="line">mov sp,0         令栈偏移地址sp为0000H</span><br><span class="line">pop [e]          出栈，并将出栈数据放入(ds*16+e)</span><br><span class="line">pop [c]          出栈，并将出栈数据放入(ds*16+c)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mov ax,2000      令寄存器ax为2000H</span><br><span class="line">mov ds,ax        令数据段寄存器ds为2000H</span><br><span class="line">mov ax,1000      令寄存器ax为1000H</span><br><span class="line">mov ss,ax        令栈段寄存器ss为1000H</span><br><span class="line">mov sp,0         令栈偏移地址sp为0000H</span><br><span class="line">pop [e]          出栈，并将出栈数据放入(ds*16+e)</span><br><span class="line">pop [c]          出栈，并将出栈数据放入(ds*16+c)</span><br></pre></td></tr></table></figure>
 
 <h2 id="连接与运行程序"><a href="#连接与运行程序" class="headerlink" title="连接与运行程序"></a>连接与运行程序</h2><p>首先将文件保存为.asm格式，进入dosbox，然后输入</p>
 <p>也可以保存为txt，但此时需要输入全名</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">masm xxx.asm     或　　　masm xxx.txt</span><br><span class="line">link xxx.obj</span><br><span class="line">debug xxx.exe</span><br><span class="line"></span><br><span class="line">若有错误会在第一步终止</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">masm xxx.asm     或　　　masm xxx.txt</span><br><span class="line">link xxx.obj</span><br><span class="line">debug xxx.exe</span><br><span class="line"></span><br><span class="line">若有错误会在第一步终止</span><br></pre></td></tr></table></figure>
 
 <h2 id="bx-和loop指令"><a href="#bx-和loop指令" class="headerlink" title="[bx]和loop指令"></a>[bx]和loop指令</h2><p>[bx]表示一个内存单元</p>
 <p>mov al,[bx]，即将一个内存单元的内容送入al，这个内存单元的长度为1字节，偏移地址在bx中，段地址在ds中</p>
 <p>()的应用如下：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.(ax)=0010H：         表示ax中的内容为0010H</span><br><span class="line">2.(21000H)=0010H：     表示2000:1000处的内容为0010H</span><br><span class="line">3.(ax)=((ds)*16+2)：   表示mov ax,[2]</span><br><span class="line">4.((ds)*16+2)=(ax)：   表示mov [2],ax</span><br><span class="line">5.(ax)=(ax)+2：        表示add ax,2</span><br><span class="line">6.(ax)=(ax)+(bx)：     表示add ax,bx</span><br><span class="line">7.(sp)=sp-2</span><br><span class="line">  ((ss)*16+(sp))=(ax)  表示push ax</span><br><span class="line">8.(ax)=((ss)*16+(sp))</span><br><span class="line">  (sp)=(sp)+2          表示pop ax</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.(ax)&#x3D;0010H：         表示ax中的内容为0010H</span><br><span class="line">2.(21000H)&#x3D;0010H：     表示2000:1000处的内容为0010H</span><br><span class="line">3.(ax)&#x3D;((ds)*16+2)：   表示mov ax,[2]</span><br><span class="line">4.((ds)*16+2)&#x3D;(ax)：   表示mov [2],ax</span><br><span class="line">5.(ax)&#x3D;(ax)+2：        表示add ax,2</span><br><span class="line">6.(ax)&#x3D;(ax)+(bx)：     表示add ax,bx</span><br><span class="line">7.(sp)&#x3D;sp-2</span><br><span class="line">  ((ss)*16+(sp))&#x3D;(ax)  表示push ax</span><br><span class="line">8.(ax)&#x3D;((ss)*16+(sp))</span><br><span class="line">  (sp)&#x3D;(sp)+2          表示pop ax</span><br></pre></td></tr></table></figure>
 
 <p>约定符号idata表示常量</p>
 <p><code>可以使用mov [bx],xx往ds:[bx]中输入数据，但是只能使用[bx]不能替换成[ax]</code></p>
 <p>使用loop进行循环计算：<br>设置cx为需要循环的次数</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line"></span><br><span class="line">mov ax,0</span><br><span class="line">mov cx,123</span><br><span class="line">s:add ax,236</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov ax,4c00H</span><br><span class="line">int 21H</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line"></span><br><span class="line">mov ax,0</span><br><span class="line">mov cx,123</span><br><span class="line">s:add ax,236</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov ax,4c00H</span><br><span class="line">int 21H</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
 <p>区别以下汇编源程序指令的含义：</p>
-<p>mov al,[0]　　　,   含义：(al)=0,将常量送入al中<br>mov al,ds:[0]　　,   含义：(al)=(ds)*16+0,将内存单元中的数据送入al<br>mov al,[bx]　　,   含义：(al)=(ds)*16+bx,将内存单元中的数据送入al<br>mov al,ds:[bx]　,   含义：(al)=(ds)*16+bx,将内存单元中的数据送入al</p>
+<p>mov [0],xxh       ，含义：错误不能将数赋值给另一个数<br>mov al,[0]　　　,   含义：(al)=0,将常量送入al中<br>mov al,ds:[0]　　,   含义：(al)=(ds)*16+0,将内存单元中的数据送入al<br>mov al,[bx]　　,   含义：(al)=(ds)*16+bx,将内存单元中的数据送入al<br>mov al,ds:[bx]　,   含义：(al)=(ds)*16+bx,将内存单元中的数据送入al</p>
 <h2 id="包含多个段的程序"><a href="#包含多个段的程序" class="headerlink" title="包含多个段的程序"></a>包含多个段的程序</h2><p>使用start获知编译器程序的入口</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line"></span><br><span class="line">dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h</span><br><span class="line"></span><br><span class="line">start:mov bx,0</span><br><span class="line">mov ax,0</span><br><span class="line">mov cx,8</span><br><span class="line"></span><br><span class="line">s:add ax,cs:[bx]</span><br><span class="line">add bx,2</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov ax,4c00H</span><br><span class="line">int 21H</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line"></span><br><span class="line">dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h</span><br><span class="line"></span><br><span class="line">start:mov bx,0</span><br><span class="line">mov ax,0</span><br><span class="line">mov cx,8</span><br><span class="line"></span><br><span class="line">s:add ax,cs:[bx]</span><br><span class="line">add bx,2</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov ax,4c00H</span><br><span class="line">int 21H</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 
 <p>在段的结尾需要写：</p>
 <p>xxx ends</p>
 <p><code>区别于end,ends用在每一段结尾</code></p>
 <p>可以使用如下代码将各类数据分类：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data,ss:stack</span><br><span class="line"></span><br><span class="line">data segment</span><br><span class="line">dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">stack segment</span><br><span class="line">dw 0,0,0,0,0,0,0,0</span><br><span class="line">stack  ends</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:mov ax,stack      此处将ss指向stack</span><br><span class="line">mov ss,ax</span><br><span class="line">mov sp,16</span><br><span class="line"></span><br><span class="line">mov ax,data             此处将ds指向data</span><br><span class="line">mov ds,ax</span><br><span class="line"></span><br><span class="line">push ds:[0]</span><br><span class="line">push ds:[2]</span><br><span class="line">pop ds:[2]</span><br><span class="line">pop ds:[0]</span><br><span class="line"></span><br><span class="line">mov ax,4c00H</span><br><span class="line">int 21H</span><br><span class="line">code ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data,ss:stack</span><br><span class="line"></span><br><span class="line">data segment</span><br><span class="line">dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">stack segment</span><br><span class="line">dw 0,0,0,0,0,0,0,0</span><br><span class="line">stack  ends</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:mov ax,stack      此处将ss指向stack</span><br><span class="line">mov ss,ax</span><br><span class="line">mov sp,16</span><br><span class="line"></span><br><span class="line">mov ax,data             此处将ds指向data</span><br><span class="line">mov ds,ax</span><br><span class="line"></span><br><span class="line">push ds:[0]</span><br><span class="line">push ds:[2]</span><br><span class="line">pop ds:[2]</span><br><span class="line">pop ds:[0]</span><br><span class="line"></span><br><span class="line">mov ax,4c00H</span><br><span class="line">int 21H</span><br><span class="line">code ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 <p>需注意，即使使用了assume cs:code,ds:data,ss:stack代码仍需定义ds,ss</p>
 <h2 id="内存地址方法"><a href="#内存地址方法" class="headerlink" title="内存地址方法"></a>内存地址方法</h2><p>and 指令：逻辑与运算，同为1则置1，其余置0</p>
 <p>mov al,01100011b<br>and al,00111011b</p>
@@ -682,29 +669,29 @@
 <p>or 指令：逻辑或运算，有1则置1，其余置0</p>
 <p>mov al,01100011b<br>or al,00111011b</p>
 <p>结果为al:01111011b</p>
-<h3 id="以字符形式给出的数据"><a href="#以字符形式给出的数据" class="headerlink" title="以字符形式给出的数据"></a>以字符形式给出的数据</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data</span><br><span class="line"></span><br><span class="line">data segment</span><br><span class="line">db'unIX'</span><br><span class="line">db'foRK'</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:mov al,'a'</span><br><span class="line">mov bl,'b'</span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="以字符形式给出的数据"><a href="#以字符形式给出的数据" class="headerlink" title="以字符形式给出的数据"></a>以字符形式给出的数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data</span><br><span class="line"></span><br><span class="line">data segment</span><br><span class="line">db&#39;unIX&#39;</span><br><span class="line">db&#39;foRK&#39;</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:mov al,&#39;a&#39;</span><br><span class="line">mov bl,&#39;b&#39;</span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 
 <p>在以上程序中“db’unIX’”相当于“db 75H,6EH,49H,58H”，为其对应的ASCII码。</p>
 <p>大小写转换：</p>
 <p>“A”的ASCII码是41H，“a”的ASCII码是61H，因此改变一个字母的大小写改变其对应的ASCII码即可。</p>
-<p><img src="/huibian/index/huibian3.png"></p>
+<p><img src="./index/huibian3.png"></p>
 <p>同样的如果仅用目前的知识可以这样考虑：大写字母的ASCII码的第五位（从右往左数从第0位开始）是0，小写字母的第五位位1。因此通过改变第五位的数字就可以改变字母大小写。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg</span><br><span class="line"></span><br><span class="line">datasg segment</span><br><span class="line">db 'BaSiC'</span><br><span class="line">db 'iNfOrMaTiOn'</span><br><span class="line">datasg ends</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line">start:mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,0</span><br><span class="line">mov cx,5</span><br><span class="line">s:mov al,[bx]</span><br><span class="line">and al,11011111B</span><br><span class="line">mov [bx],al</span><br><span class="line">inc bx</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov bx,5</span><br><span class="line">mov cx,11</span><br><span class="line">s0:mov al,[bx]</span><br><span class="line">or al,00100000B</span><br><span class="line">mov [bx],al</span><br><span class="line">inc bx</span><br><span class="line">loop s0</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg</span><br><span class="line"></span><br><span class="line">datasg segment</span><br><span class="line">db &#39;BaSiC&#39;</span><br><span class="line">db &#39;iNfOrMaTiOn&#39;</span><br><span class="line">datasg ends</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line">start:mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,0</span><br><span class="line">mov cx,5</span><br><span class="line">s:mov al,[bx]</span><br><span class="line">and al,11011111B</span><br><span class="line">mov [bx],al</span><br><span class="line">inc bx</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov bx,5</span><br><span class="line">mov cx,11</span><br><span class="line">s0:mov al,[bx]</span><br><span class="line">or al,00100000B</span><br><span class="line">mov [bx],al</span><br><span class="line">inc bx</span><br><span class="line">loop s0</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 
 <h3 id="bx-idata"><a href="#bx-idata" class="headerlink" title="[bx+idata]"></a>[bx+idata]</h3><p>可以使用[bx+idata]表示一个内存单元,染的偏转地址为(bx)+idata</p>
 <p>mov ax,[bx+200]表示将内存单元中的内容送入ax，这个内存单元的长度位2个字节，存放一个字，偏移地址为bx中的数值加上200，段地址在ds中。即(ax)=((ds)*16+(bx)+200)</p>
 <p>mov ax,[200+bx]=mov ax,200[bx]=mov ax,[bx].200</p>
 <p>因此以上的程序可以这样改写：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg</span><br><span class="line"></span><br><span class="line">datasg segment</span><br><span class="line">db 'BaSiC'</span><br><span class="line">db 'iNfOrMaTiOn'</span><br><span class="line">datasg ends</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line">start:mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,0</span><br><span class="line">mov cx,5</span><br><span class="line">s:mov al,0[bx]</span><br><span class="line">and al,11011111B</span><br><span class="line">mov 0[bx],al</span><br><span class="line">mov al,5[bx]</span><br><span class="line">or al,00100000B</span><br><span class="line">mov 5[bx],al</span><br><span class="line">inc bx</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg</span><br><span class="line"></span><br><span class="line">datasg segment</span><br><span class="line">db &#39;BaSiC&#39;</span><br><span class="line">db &#39;iNfOrMaTiOn&#39;</span><br><span class="line">datasg ends</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line">start:mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,0</span><br><span class="line">mov cx,5</span><br><span class="line">s:mov al,0[bx]</span><br><span class="line">and al,11011111B</span><br><span class="line">mov 0[bx],al</span><br><span class="line">mov al,5[bx]</span><br><span class="line">or al,00100000B</span><br><span class="line">mov 5[bx],al</span><br><span class="line">inc bx</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 
 <h3 id="SI和DI"><a href="#SI和DI" class="headerlink" title="SI和DI"></a>SI和DI</h3><p>si和di是与bx功能相近的寄存器，si和di不能够分成两个8位寄存器来使用。</p>
 <p>以下指令实现了相同的内容：</p>
 <p>1.mov bx,0<br>  mov ax,[bx]<br>2.mov si,0<br>  mov ax,[si]<br>3.mov di,0<br>  mov ax,[di]</p>
 <p>1.mov bx,0<br>  mov ax,[bx+123]<br>2.mov si,0<br>  mov ax,[si+123]<br>3.mov di,0<br>  mov ax,[di+123]</p>
 <p>用si和di实现将字符串’welcome to masm!’复制到它后面的数据区中。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg</span><br><span class="line">datasg segment</span><br><span class="line">db 'welcome to masm!'</span><br><span class="line">db '·······'</span><br><span class="line">datasg ends</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg</span><br><span class="line">datasg segment</span><br><span class="line">db &#39;welcome to masm!&#39;</span><br><span class="line">db &#39;·······&#39;</span><br><span class="line">datasg ends</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">codesg segment</span><br><span class="line"></span><br><span class="line">start:mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov si,0</span><br><span class="line">mov cx,8</span><br><span class="line"></span><br><span class="line">s:mov ax,0[si]</span><br><span class="line">mov 16[si],ax</span><br><span class="line">add si,2</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">codesg segment</span><br><span class="line"></span><br><span class="line">start:mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov si,0</span><br><span class="line">mov cx,8</span><br><span class="line"></span><br><span class="line">s:mov ax,0[si]</span><br><span class="line">mov 16[si],ax</span><br><span class="line">add si,2</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 
 <h3 id="bx-si-和-bx-di"><a href="#bx-si-和-bx-di" class="headerlink" title="[bx+si]和[bx+di]"></a>[bx+si]和[bx+di]</h3><p>两式含义近似，以[bx+si]为例，其表示一个内存单元，他的偏移地址为(bx)+(si)</p>
 <p>mov ax,[bx+si]表示：将内存单元中的内容送入ax，这个内存单元的长度位2个字节，存放一个字，偏移地址为bx中的数值加上si中的数值，段地址在ds中。即(ax)=((ds)*16+(bx)+(si))</p>
@@ -712,13 +699,13 @@
 <p>同样的可以理解mov ax,[bx+si+idata]</p>
 <p>可以写为mov ax,[bx+200+si]<br>mov ax,[200+bx+si]<br>mov ax,200[bx][si]<br>mov ax,[bx].200[si]<br>mov ax,[bx][si].200</p>
 <h3 id="双重循环与loop计数器"><a href="#双重循环与loop计数器" class="headerlink" title="双重循环与loop计数器"></a>双重循环与loop计数器</h3><p>在使用双重循环时，如果只用一个循环计数器，会造成内层循环时，覆盖了外层循环的循环计数值。因此在内层循环开始时，先将外层循环保存，在执行外层循环的loop指令前，再恢复外层循环的cx数值。以下为使用寄存器dx来保存cx中的数值：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,0</span><br><span class="line"></span><br><span class="line">s0:mov dx,cx</span><br><span class="line">mov si,0</span><br><span class="line">mov cx,3</span><br><span class="line"></span><br><span class="line">s:mov al,[bx+si]</span><br><span class="line">and al,11011111B</span><br><span class="line">mov [bx+si],al</span><br><span class="line">inc si</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">add bx,16</span><br><span class="line">mov cx,dx</span><br><span class="line"></span><br><span class="line">loop s0</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,0</span><br><span class="line"></span><br><span class="line">s0:mov dx,cx</span><br><span class="line">mov si,0</span><br><span class="line">mov cx,3</span><br><span class="line"></span><br><span class="line">s:mov al,[bx+si]</span><br><span class="line">and al,11011111B</span><br><span class="line">mov [bx+si],al</span><br><span class="line">inc si</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">add bx,16</span><br><span class="line">mov cx,dx</span><br><span class="line"></span><br><span class="line">loop s0</span><br></pre></td></tr></table></figure>
 
 <p>当然也可以使用内存来保存数据cx</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,0</span><br><span class="line"></span><br><span class="line">s0:mov ds:[40h],cx</span><br><span class="line">mov si,0</span><br><span class="line">mov cx,3</span><br><span class="line"></span><br><span class="line">s:mov al,[bx+si]</span><br><span class="line">and al,11011111B</span><br><span class="line">mov [bx+si],al</span><br><span class="line">inc si</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">add bx,16</span><br><span class="line">mov cx,ds:[40h]</span><br><span class="line"></span><br><span class="line">loop s0</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,0</span><br><span class="line"></span><br><span class="line">s0:mov ds:[40h],cx</span><br><span class="line">mov si,0</span><br><span class="line">mov cx,3</span><br><span class="line"></span><br><span class="line">s:mov al,[bx+si]</span><br><span class="line">and al,11011111B</span><br><span class="line">mov [bx+si],al</span><br><span class="line">inc si</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">add bx,16</span><br><span class="line">mov cx,ds:[40h]</span><br><span class="line"></span><br><span class="line">loop s0</span><br></pre></td></tr></table></figure>
 
 <p>最好是使用栈暂存数据</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg,ss:stacksg</span><br><span class="line"></span><br><span class="line">datasg segment</span><br><span class="line">db '1. display      '</span><br><span class="line">db '2. brows        '</span><br><span class="line">db '3. replace      '</span><br><span class="line">db '4. modify       '</span><br><span class="line">datasg ends</span><br><span class="line"></span><br><span class="line">stacksg segment</span><br><span class="line">dw 0,0,0,0,0,0,0,0</span><br><span class="line">stacksg ends</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line">start:mov ax,stacksg</span><br><span class="line">mov ss,ax</span><br><span class="line">mov sp,16</span><br><span class="line">mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,0</span><br><span class="line">mov cx,4</span><br><span class="line"></span><br><span class="line">s0:push cx</span><br><span class="line">mov si,3</span><br><span class="line">mov cx,4</span><br><span class="line"></span><br><span class="line">s:mov al,[bx+si]</span><br><span class="line">and al,11011111B</span><br><span class="line">mov [bx+si],al</span><br><span class="line">inc si</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">add bx,16</span><br><span class="line">pop cx</span><br><span class="line">loop s0</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg,ss:stacksg</span><br><span class="line"></span><br><span class="line">datasg segment</span><br><span class="line">db &#39;1. display      &#39;</span><br><span class="line">db &#39;2. brows        &#39;</span><br><span class="line">db &#39;3. replace      &#39;</span><br><span class="line">db &#39;4. modify       &#39;</span><br><span class="line">datasg ends</span><br><span class="line"></span><br><span class="line">stacksg segment</span><br><span class="line">dw 0,0,0,0,0,0,0,0</span><br><span class="line">stacksg ends</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line">start:mov ax,stacksg</span><br><span class="line">mov ss,ax</span><br><span class="line">mov sp,16</span><br><span class="line">mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,0</span><br><span class="line">mov cx,4</span><br><span class="line"></span><br><span class="line">s0:push cx</span><br><span class="line">mov si,3</span><br><span class="line">mov cx,4</span><br><span class="line"></span><br><span class="line">s:mov al,[bx+si]</span><br><span class="line">and al,11011111B</span><br><span class="line">mov [bx+si],al</span><br><span class="line">inc si</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">add bx,16</span><br><span class="line">pop cx</span><br><span class="line">loop s0</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 
 <h2 id="数据处理的两个基本问题"><a href="#数据处理的两个基本问题" class="headerlink" title="数据处理的两个基本问题"></a>数据处理的两个基本问题</h2><p>1.处理的数据在什么地方</p>
 <p>2.要处理的数据有多长</p>
@@ -739,38 +726,38 @@
 <p>绝大部分机器指令都是进行数据处理的指令，处理大致可分为3类：读取，写入，运算。</p>
 <p>指令在执行前，所要处理的数据可以在3个地方：CPU内部，内存，端口</p>
 <h3 id="汇编语言中数据位置的表达"><a href="#汇编语言中数据位置的表达" class="headerlink" title="汇编语言中数据位置的表达"></a>汇编语言中数据位置的表达</h3><p>1.立即数(idata)<br>对于直接包含在机器指令中的数据（执行前在CPU的指令缓冲器中），在汇编语言中称为立即数。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">mov ax,1</span><br><span class="line">add bx,2000h</span><br><span class="line">or bx,00010000b</span><br><span class="line">mov al,'a'</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">mov ax,1</span><br><span class="line">add bx,2000h</span><br><span class="line">or bx,00010000b</span><br><span class="line">mov al,&#39;a&#39;</span><br></pre></td></tr></table></figure>
 
 <p>2.寄存器<br>指令要处理的数据在寄存器中，在汇编指令中给出相应的寄存器名。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">mov ax,bx</span><br><span class="line">mov ds,ax</span><br><span class="line">push bx</span><br><span class="line">mov ds:[0],bx</span><br><span class="line">push ds</span><br><span class="line">mov ss,ax</span><br><span class="line">mov sp,ax</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">mov ax,bx</span><br><span class="line">mov ds,ax</span><br><span class="line">push bx</span><br><span class="line">mov ds:[0],bx</span><br><span class="line">push ds</span><br><span class="line">mov ss,ax</span><br><span class="line">mov sp,ax</span><br></pre></td></tr></table></figure>
 
 <p>3.段地址(SA)和偏移地址(EA)<br>指令要处理的数据在内存中，在汇编指令中可用[x]的格式给出EA,SA在某个段寄存器中。存放段地址的寄存器可以是默认的，比如：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mov ax,[0]</span><br><span class="line">mov ax,[di]</span><br><span class="line">mov ax,[bx+8]</span><br><span class="line">mov ax,[bx+si]</span><br><span class="line">mov ax,[bx+si+8]</span><br><span class="line">此类指令段地址默认在ds中</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mov ax,[0]</span><br><span class="line">mov ax,[di]</span><br><span class="line">mov ax,[bx+8]</span><br><span class="line">mov ax,[bx+si]</span><br><span class="line">mov ax,[bx+si+8]</span><br><span class="line">此类指令段地址默认在ds中</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov ax,[bp]</span><br><span class="line">mov ax,[bp+8]</span><br><span class="line">mov ax,[bp+si]</span><br><span class="line">mov ax,[bp+si+8]</span><br><span class="line">此类指令段地址默认在在ss中</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov ax,[bp]</span><br><span class="line">mov ax,[bp+8]</span><br><span class="line">mov ax,[bp+si]</span><br><span class="line">mov ax,[bp+si+8]</span><br><span class="line">此类指令段地址默认在在ss中</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">存放段地址的寄存器也可以是显性给出的</span><br><span class="line">mov ax,ds:[bp]        (ax)=((ds)*16+(bp))</span><br><span class="line">mov ax,cs:[bx+si+8]   (ax)=((cs)*16+(bx)+(si)+8)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">存放段地址的寄存器也可以是显性给出的</span><br><span class="line">mov ax,ds:[bp]        (ax)&#x3D;((ds)*16+(bp))</span><br><span class="line">mov ax,cs:[bx+si+8]   (ax)&#x3D;((cs)*16+(bx)+(si)+8)</span><br></pre></td></tr></table></figure>
 
-<h3 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h3><p><img src="/huibian/index/huibian4.png"></p>
+<h3 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h3><p><img src="./index/huibian4.png"></p>
 <h3 id="指令要处理的数据长度"><a href="#指令要处理的数据长度" class="headerlink" title="指令要处理的数据长度"></a>指令要处理的数据长度</h3><p>8086处理器中可以处理两种尺寸的数据，byte和word。因此要给出需要处理的数据的尺寸。</p>
 <p>1.通过寄存器名指明要处理的数据尺寸</p>
 <p>例如：存储器指明字操作</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mov ax,1</span><br><span class="line">mov bx,ds:[0]</span><br><span class="line">mov ds,ax</span><br><span class="line">mov ds:[0],ax</span><br><span class="line">inc ax</span><br><span class="line">add ax,1000</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mov ax,1</span><br><span class="line">mov bx,ds:[0]</span><br><span class="line">mov ds,ax</span><br><span class="line">mov ds:[0],ax</span><br><span class="line">inc ax</span><br><span class="line">add ax,1000</span><br></pre></td></tr></table></figure>
 
 <p>存储器指明字节操作</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mov al,1</span><br><span class="line">mov al,bl</span><br><span class="line">mov al,ds:[0]</span><br><span class="line">mov ds:[0],al</span><br><span class="line">inc al</span><br><span class="line">add al,100</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mov al,1</span><br><span class="line">mov al,bl</span><br><span class="line">mov al,ds:[0]</span><br><span class="line">mov ds:[0],al</span><br><span class="line">inc al</span><br><span class="line">add al,100</span><br></pre></td></tr></table></figure>
 
 <p>2.在没有就寄存器名存在的情况下，用操作符Xptr指明内存单元的长度，X在汇编指令中可以为word或byte。</p>
 <p>例如：下面的指令中用word ptr指明了指令访问的内存单元是一个字单元</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov word ptr ds:[0],1</span><br><span class="line">inc word ptr [bx]</span><br><span class="line">inc word ptr ds:[0]</span><br><span class="line">add word ptr [bx],2</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov word ptr ds:[0],1</span><br><span class="line">inc word ptr [bx]</span><br><span class="line">inc word ptr ds:[0]</span><br><span class="line">add word ptr [bx],2</span><br></pre></td></tr></table></figure>
 
 <p>下面的指令用byte ptr指明了指令访问的内存单元是一个字节单元</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov byte ptr ds:[0],1</span><br><span class="line">inc byte ptr [bx]</span><br><span class="line">inc byte ptr ds:[0]</span><br><span class="line">add byte ptr [bx],2</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov byte ptr ds:[0],1</span><br><span class="line">inc byte ptr [bx]</span><br><span class="line">inc byte ptr ds:[0]</span><br><span class="line">add byte ptr [bx],2</span><br></pre></td></tr></table></figure>
 
 <p>3.使用push 指令时不需要指明访问的是字单元还是字节单元，因为push指令只进行字操作。</p>
-<h3 id="寻址方式应用"><a href="#寻址方式应用" class="headerlink" title="寻址方式应用"></a>寻址方式应用</h3><p><img src="/huibian/index/huibian5.png"></p>
+<h3 id="寻址方式应用"><a href="#寻址方式应用" class="headerlink" title="寻址方式应用"></a>寻址方式应用</h3><p><img src="./index/huibian5.png"></p>
 <p>1.需要将排名改为38位<br>2.收入改为70亿元<br>3.著名产品变更为VAX系列计算机</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mov ax,seg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,60h</span><br><span class="line"></span><br><span class="line">mov word ptr [bx+0ch],38</span><br><span class="line">add word ptr [bx+0eh],70</span><br><span class="line"></span><br><span class="line">mov si,0</span><br><span class="line">mov byte ptr [bx+10h+si],'V'</span><br><span class="line">inc si</span><br><span class="line">mov byte ptr [bx+10h+si],'A'</span><br><span class="line">inc si</span><br><span class="line">mov byte ptr [bx+10h+si],'X'</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mov ax,seg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,60h</span><br><span class="line"></span><br><span class="line">mov word ptr [bx+0ch],38</span><br><span class="line">add word ptr [bx+0eh],70</span><br><span class="line"></span><br><span class="line">mov si,0</span><br><span class="line">mov byte ptr [bx+10h+si],&#39;V&#39;</span><br><span class="line">inc si</span><br><span class="line">mov byte ptr [bx+10h+si],&#39;A&#39;</span><br><span class="line">inc si</span><br><span class="line">mov byte ptr [bx+10h+si],&#39;X&#39;</span><br></pre></td></tr></table></figure>
 
 <h3 id="div指令"><a href="#div指令" class="headerlink" title="div指令"></a>div指令</h3><p>使用div除法指令时需要注意以下问题：</p>
 <p>1.除数：有8位和16位两种，在一个reg或内存单元中</p>
@@ -787,7 +774,7 @@
 <p>mov ax,1001<br>mov bl,100<br>div bl</p>
 <p>程序执行后，商(ax)=0ah，余数(ah)=1</p>
 <h3 id="伪指令dd"><a href="#伪指令dd" class="headerlink" title="伪指令dd"></a>伪指令dd</h3><p>前面曾使用db和dw定义字节型数据和字型数据。dd用来定义双字型数据。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data segment</span><br><span class="line">db 1</span><br><span class="line">dw 1</span><br><span class="line">dd 1</span><br><span class="line">data ends</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data segment</span><br><span class="line">db 1</span><br><span class="line">dw 1</span><br><span class="line">dd 1</span><br><span class="line">data ends</span><br></pre></td></tr></table></figure>
 
 <p>表示在data段中定义了三个数据：<br>第一个数据为01h，在data:0处，占1个字节<br>第二个数据为0001h，在data:1处，占一个字<br>第三个数据为00000001h，在data:3，占两个字</p>
 <h3 id="dup"><a href="#dup" class="headerlink" title="dup"></a>dup</h3><p>dup是一个操作符，在汇编语言中同db,dw,dd一样，也是由编译器识别处理的符号。他适合db,dw,dd等数据定义伪指令配合使用的，用来进行数据的重复。</p>
@@ -798,7 +785,7 @@
 <p>dup的使用格式：</p>
 <p>db 重复的次数 dup (重复的字节型数据)<br>dw 重复的次数 dup (重复的字型数据)<br>dd 重复的次数 dup (重复的双字型数据)</p>
 <p>因此在定义一个200字节的栈段时，可以通过dup化简程序</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stack segment</span><br><span class="line">db 200 dup (0)</span><br><span class="line">stack ends</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stack segment</span><br><span class="line">db 200 dup (0)</span><br><span class="line">stack ends</span><br></pre></td></tr></table></figure>
 
 <h2 id="转移指令原理"><a href="#转移指令原理" class="headerlink" title="转移指令原理"></a>转移指令原理</h2><p>可以修改IP或者同时修改CS:IP的指令称为转移指令。</p>
 <p>只修改IP时，称为段内转移，比如：jmp ax</p>
@@ -809,7 +796,7 @@
 <p><code>转移指令分类：</code></p>
 <p>1.无条件转移指令：jmp<br>2.条件转移指令<br>3.循环指令<br>4.过程<br>5.中断</p>
 <h3 id="操作符offset"><a href="#操作符offset" class="headerlink" title="操作符offset"></a>操作符offset</h3><p>操作符offset再汇编语言中是由编译器处理的符号，他的功能是取得标号的偏移地址。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line">codesg segment</span><br><span class="line"></span><br><span class="line">start:mov ax,offset start  #相当于mov ax,0</span><br><span class="line">s:mov ax,offset s          #相当于mov ax,3</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line">codesg segment</span><br><span class="line"></span><br><span class="line">start:mov ax,offset start  #相当于mov ax,0</span><br><span class="line">s:mov ax,offset s          #相当于mov ax,3</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 
 <p>在上面的程序中offset取得了符号start和s的偏移地址0和3，所以指令可以分别等价于mov ax,0;mov ax,3</p>
 <p>nop指令对应的机器码占一个字节</p>
@@ -817,11 +804,45 @@
 <p>jmp指令要给出两个信息：<br>1.转移的目的地址<br>2.转移的距离</p>
 <p>jmp short 标号（转到标号处执行指令）</p>
 <p>这种格式的jmp指令实现的时段内短转移，它对IP的修改范围为-128~127，也就是说，向前最多可以越过128个字节，向后转移最多越过127个字节。short说明指令进行的是短转移。标号指明指令要转移的地址，转移指令结束后CS:IP指向标号处的指令。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line">codesg segment</span><br><span class="line"></span><br><span class="line">start:mov ax,0</span><br><span class="line">jmp short s</span><br><span class="line">add ax,1</span><br><span class="line">s:inc ax</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line">codesg segment</span><br><span class="line"></span><br><span class="line">start:mov ax,0</span><br><span class="line">jmp short s</span><br><span class="line">add ax,1</span><br><span class="line">s:inc ax</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 
 <p>程序值进行一次ax+1操作，此处jmp short s对应于机器码EB03，此机器码中不含转移的目标地址。因此说明CPU在执行jmp指令的时候并不需要转移的目的地址。</p>
 <p>jmp short s的指令读取和执行过程：</p>
 <p>1.(CS)=0BBDH,(IP)=0006H,CS:IP指向EB03（对应的机器码）<br>2.读取指令码EB03进入指令缓冲器<br>3.(IP)=(IP)+所读取指令的长度=(IP)+2=0008H，CS:IP指向add ax,1<br>4.CPU执行指令缓冲器中的指令EB 03；<br>5.指令EB03执行后，(IP)=000BH，CS:IP指向inc ax</p>
+<p>使用相对位移计算得到的机器码：</p>
+<p><img src="./index/huibian6.png"></p>
+<p>“jmp short 标号”的功能：(IP)=(IP)+8位位移</p>
+<p>1：8位位移=标号处地址jmp指令后的第一个字节的地址；</p>
+<p>2：short指明此处的位移为8位位移；</p>
+<p>3：8位位移的范围为-128~127，用补码表示；</p>
+<p>4：8位位移由编程程序在编译时算出。</p>
+<p>“jmp near ptr 标号”的功能为：(IP)=(IP)+16位位移</p>
+<p>1：16位位移=标号处的地址jmp指令后的第一个字节的地址；</p>
+<p>2：near ptr指明此处的位移为16位位移，进行的是段内近转移；</p>
+<p>3：16位位移的范围为-32768~32767，用补码表示；</p>
+<p>4：16位位移由编程程序在编译时算出。</p>
+<p>在“jmp far ptr 标号”中实现的是段间转移，又称远转移。</p>
+<p>(CS)=标号所在段的段地址；(IP)=标号在段中的偏移地址。</p>
+<p><img src="./index/huibian7.png"></p>
+<h3 id="转移指令jmp与内存"><a href="#转移指令jmp与内存" class="headerlink" title="转移指令jmp与内存"></a>转移指令jmp与内存</h3><p>1.“jmp word ptr 内存单元地址”（段内转移）</p>
+<p>功能：从内存单元地址处存放着一个字，是转移的目的偏移地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ax,0123h</span><br><span class="line">mov ds:[0],ax</span><br><span class="line">jmp word ptr ds:[0]</span><br></pre></td></tr></table></figure>
+<p>执行后(IP)=0123h</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ax,0123h</span><br><span class="line">mov [bx],ax</span><br><span class="line">jmp word ptr [bx]</span><br></pre></td></tr></table></figure>
+<p>执行后(IP)=0123h</p>
+<p>2.“jmp dword ptr 内存单元地址”（段间转移）</p>
+<p>功能从内存单元地址处开始存放着两个字，高地址处的字是转移的目的段地址，低地址是转移的目的偏移地址。</p>
+<p>(CS)=(内存单元地址+2)<br>(IP)=(内存单元地址)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax,0123h</span><br><span class="line">mov ds:[0],ax</span><br><span class="line">mov word ptr ds:[2],0</span><br><span class="line">jmp dword ptr ds:[0]</span><br></pre></td></tr></table></figure>
+<p>执行后：(CS)=0，(IP)=0123H，CS,IP指向0000：0123</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax,0123h</span><br><span class="line">mov [bx],ax</span><br><span class="line">mov word ptr [bx+2],0</span><br><span class="line">jmp dword ptr [bx]</span><br></pre></td></tr></table></figure>
+<p>执行后：(CS)=0，(IP)=0123H，CS,IP指向0000：0123</p>
+<h3 id="jcxz与loop指令"><a href="#jcxz与loop指令" class="headerlink" title="jcxz与loop指令"></a>jcxz与loop指令</h3><p>jcxz指令为有条件转移指令，所有的有条件转移指令都是短转移，在对应的机器码中包含转移的位移，而不是目的地址。对IP的修改范围都为：-128~127。</p>
+<p>指令格式：jcxz 标号（如果（cx）=0，转移到标号处执行）</p>
+<p>if((cx)==0):jmp short 标号</p>
+<p>loop指令为循环指令，所有的循环指令都是短转移，在对应的机器码中包含转移的位移，而不是目的地址。对IP的修改范围都为：-128~127。</p>
+<p>指令格式：loop 标号（（cx）=（cx）-1），如果(cx)!=0，转移到标号处执行</p>
+<p>(cx)–;<br>if ((cx)!=0):jmp short 标号；</p>
 
                 
             </div>
@@ -838,7 +859,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">liangfei mo</a>
+                    <a href="/about" rel="external nofollow noreferrer">莫梁斐</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -861,7 +882,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">liangfei mo</a>
+                    <a href="/about" target="_blank">莫梁斐</a>
                     !
                 </span>
             </div>
@@ -1013,10 +1034,10 @@
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="/" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="/" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1077,12 +1098,12 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            liangfei mo
+                            莫梁斐
                             
                         </span>
                     </div>
@@ -1115,12 +1136,12 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            liangfei mo
+                            莫梁斐
                             
                         </span>
                     </div>
@@ -1319,10 +1340,13 @@
                 <span id="year">2019-2021</span>
             
             <span id="year">2019</span>
-            <a href="/about" target="_blank">liangfei mo</a>
+            <a href="/about" target="_blank">莫梁斐</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">2.8k</span>&nbsp;字
             
             
             
@@ -1346,7 +1370,7 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/lunasama1/blog" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/lunasama1/lunasama1.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
