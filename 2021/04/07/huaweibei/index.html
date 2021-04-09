@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    3k
                 </div>
                 
 
@@ -637,6 +637,15 @@
 <p>遇到全是+-&lt;&gt;的可能是brainfuck加密</p>
 <p>03F30D0A是pyc文件</p>
 <p>对于九宫格类型可能为拼接大的九宫格，然后将其对应有数字处涂黑（也可用01画二维码），可得出新二维码</p>
+<p>winhex隐写：首先搜索tcp流，寻找到对应的文件（如png），</p>
+<p><img src="/png/ctf35.png"></p>
+<p>可在搜索框中慢慢修改数字获得对应的文件，然后再次使用tcp流打开，选择原始数据保存，然后可进行下一步处理（如zsteg）</p>
+<p>ttl隐写：每个ttl转化为二进制后只有首两位不同，因此将其提出，每四组转化为一组10进制数据，再转化为字符串输入，可以获得对应的16进制文件</p>
+<p>图片宽度爆破：</p>
+<p><img src="/png/ctf36.png"></p>
+<p>对于缺失图片宽度（第二行前四字节），可以直接爆破再重新写入(附爆破代码)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import binascii</span><br><span class="line">import struct</span><br><span class="line"></span><br><span class="line">misc&#x3D;open(&#39;&#x2F;home&#x2F;mlf&#x2F;Desktop&#x2F;1.png&#39;,&#39;rb&#39;).read()</span><br><span class="line"></span><br><span class="line">for i in range(1024):</span><br><span class="line">    data&#x3D;misc[12:16]+struct.pack(&#39;&gt;i&#39;,i)+misc[20:29]</span><br><span class="line">    crc32&#x3D;binascii.crc32(data)&amp;0xffffffff</span><br><span class="line">    if crc32 &#x3D;&#x3D; 0x932f8a6b:</span><br><span class="line">        print(i)</span><br></pre></td></tr></table></figure>
+
 <h2 id="密码（crypto）"><a href="#密码（crypto）" class="headerlink" title="密码（crypto）"></a>密码（crypto）</h2><p>看到结尾有等号先丢base64（需要与DES区分）,若全文有多个等号丢base32</p>
 <p>多组AB组合可能为培根密码</p>
 <p>对应的幂数加密如果无法对2进行幂数加密可以尝试1</p>
@@ -1285,7 +1294,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.2k</span>&nbsp;字
+                class="white-color">3.4k</span>&nbsp;字
             
             
             
