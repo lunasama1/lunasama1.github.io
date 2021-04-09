@@ -564,7 +564,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-06
+                    2021-04-09
                 </div>
                 
 
@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.4k
+                    6k
                 </div>
                 
 
@@ -613,6 +613,37 @@
 <h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p>!&gt;字节型数据占一单元，字型数据占两单元</p>
 <p>cs是值cpu执行的当前指令的段地址，ds是数据开始的段地址。(均不能直接赋值，需间接赋值如:  mov ax,1000H   mov ds,ax)</p>
 <p>CS是告诉CPU，去哪个位置找内容当成指令去执行；<br>DS是告诉CPU，去哪个位置找内容当成数据被使用。</p>
+<p><code>CS和IP读取指令的变化：</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">内存地址</th>
+<th align="center">机器码</th>
+<th align="center">汇编指令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1000:0</td>
+<td align="center">b8 00 00</td>
+<td align="center">mov ax,0</td>
+</tr>
+<tr>
+<td align="center">1000:3</td>
+<td align="center">e8 01 00</td>
+<td align="center">call s</td>
+</tr>
+<tr>
+<td align="center">1000:6</td>
+<td align="center">40</td>
+<td align="center">inc ax</td>
+</tr>
+<tr>
+<td align="center">1000:7</td>
+<td align="center">58</td>
+<td align="center">s:pop ax</td>
+</tr>
+</tbody></table>
+<p>1.读取第一条指令后IP=3，执行完该指令后IP=3<br>2.读取第二条指令后IP=6（自动读取下一条指令），所以IP=6入栈，执行完指令后IP=7<br>3.最后POP后，ax=6</p>
 <h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>任何时刻，SS:SP指向栈顶元素=SS:SP指向栈空间最高地址单元的下一个单元</p>
 <p>push入栈指令：</p>
 <p><img src="./index/huibian1.png"></p>
@@ -843,6 +874,33 @@
 <p>loop指令为循环指令，所有的循环指令都是短转移，在对应的机器码中包含转移的位移，而不是目的地址。对IP的修改范围都为：-128~127。</p>
 <p>指令格式：loop 标号（（cx）=（cx）-1），如果(cx)!=0，转移到标号处执行</p>
 <p>(cx)–;<br>if ((cx)!=0):jmp short 标号；</p>
+<h2 id="call和ret指令"><a href="#call和ret指令" class="headerlink" title="call和ret指令"></a>call和ret指令</h2><p>CPU执行ret指令，进行下面两步操作：<br>1.(IP)=((SS)*16+(SP))<br>2.(SP)=(SP)+2</p>
+<p><code>相当于pop IP</code>(获得数据)</p>
+<p>CPU执行retf指令时，进行下面四步操作：<br>1.(IP)=((SS)*16+(SP))<br>2.(SP)=(SP)+2<br>3.(CS)=((SS)*16+(SP))<br>4.(SP)=(SP)+2</p>
+<p><code>相当于pop IP</code><br><code>pop CS</code></p>
+<p>以下程序执行完之后，CS:IP指向代码段的第一条指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line"></span><br><span class="line">stack segment</span><br><span class="line">db 16 dup (0)</span><br><span class="line">stack ends</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">mov ax,4c00H</span><br><span class="line">int 21h</span><br><span class="line">start:mov ax,stack</span><br><span class="line">mov ss,ax</span><br><span class="line">mov sp,16</span><br><span class="line">mov ax,0</span><br><span class="line">push ax</span><br><span class="line">mov bx,0</span><br><span class="line">ret</span><br><span class="line">code ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<h3 id="依据位移转移的call指令"><a href="#依据位移转移的call指令" class="headerlink" title="依据位移转移的call指令"></a>依据位移转移的call指令</h3><p>CPU执行此种格式的“call指令（call 标号）”时，进行如下操作：</p>
+<p>1.(sp)=(sp)-2<br>  ((ss)*16+(sp))=(IP)<br>2.(IP)=(IP)+16位位移</p>
+<p>16位位移的范围位-32768-32767，用补码表示；<br>16位位移由程序在编译时算出</p>
+<p>“call 标号”等价于：<br>push IP<br>jmp near ptr</p>
+<p>对检测点10.2的解释：</p>
+<p>1.读取第一条指令后IP=3，执行完该指令后IP=3<br>2.读取第二条指令后IP=6（自动读取下一条指令），所以IP=6入栈，执行完指令后IP=7<br>3.最后POP后，ax=6</p>
+<p>“call far ptr”实现的是段间转移<br>CPU执行此格式的call指令后，进行如下操作：</p>
+<p>1.(sp)=(sp)-2<br>  ((ss)*16+(sp))=(cs)<br>  (sp)=(sp)-2<br>  ((ss)*16+(sp))=(ip)<br>2.(CS)=标号所在段的段地址<br>  (IP)=标号所在段中的偏移地址</p>
+<p>“call far ptr”等价于：<br>push CS<br>push IP<br>jmp far ptr 标号</p>
+<h3 id="call指令与寄存器"><a href="#call指令与寄存器" class="headerlink" title="call指令与寄存器"></a>call指令与寄存器</h3><p>“call 16位 reg”功能：<br>(sp)=(sp)-2<br>((ss)*16+(sp))=(ip)<br>(ip)=(16位reg)</p>
+<p>相当于：<br>push ip<br>jmp 16位 reg</p>
+<p>转移地址在内存中的call指令格式：</p>
+<p>1.call word ptr 内存单元地址</p>
+<p>相当于：<br>push IP<br>jmp word ptr 内存单元地址</p>
+<p>2.call dword ptr 内存单元地址</p>
+<p>相当于：</p>
+<p>push cs<br>push IP<br>jmp dword ptr 内存单元地址</p>
+<p>下面指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov sp,10h</span><br><span class="line">mov ax,0123h</span><br><span class="line">mov ds:[0],ax</span><br><span class="line">mov word ptr ds:[2],0</span><br><span class="line">call dword ptr ds:[0]</span><br></pre></td></tr></table></figure>
+<p>执行完，(CS)=0，(IP)=0123h，(sp)=0ch<br>放入CS,IP后从内存单元地址读入CS和IP</p>
 
                 
             </div>
@@ -1098,7 +1156,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
                             </span>
                         <span class="publish-author">
                             
@@ -1136,7 +1194,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
                             </span>
                         <span class="publish-author">
                             
@@ -1346,7 +1404,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.1k</span>&nbsp;字
+                class="white-color">3.2k</span>&nbsp;字
             
             
             
