@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.2k
                 </div>
                 
 
@@ -648,6 +648,16 @@
 
 <p>对于wireshark文件可以追踪tcp流，打开为原始数据保存，然后使用vim打开，dd删除数据，：打开操作栏，wq离开</p>
 <p>LSB图像（只适用于png和bmp文件）隐写，可以尝试将bmp文件保存为png文件然后再次用stgslove分析</p>
+<h3 id="AX-25（Amateur-X-25）"><a href="#AX-25（Amateur-X-25）" class="headerlink" title="AX.25（Amateur X.25）"></a>AX.25（Amateur X.25）</h3><p>ax.25是数据链路层协议套件，旨在供业余无线电运营商使用</p>
+<p>AX.25协议在物理层使用BFSK调制</p>
+<p>对于音频文件可以尝试观察频谱（分析-频谱分析）</p>
+<p><img src="/png/ctf37.png"></p>
+<p>此处两个尖点为1000hz与2200hz处,可以使用multimon-ng转化</p>
+<p>在使用multimon-ng前</p>
+<p>需要先用sox把wav转为raw文件：</p>
+<p>sox -t wav 文件名 -esigned-integer -b16 -r 22050 -t raw latlong.raw</p>
+<p>然后：multimon-ng -t raw -a AFSK1200 文件名</p>
+<p>解出答案</p>
 <h2 id="密码（crypto）"><a href="#密码（crypto）" class="headerlink" title="密码（crypto）"></a>密码（crypto）</h2><p>看到结尾有等号先丢base64（需要与DES区分）,若全文有多个等号丢base32</p>
 <p>多组AB组合可能为培根密码</p>
 <p>对应的幂数加密如果无法对2进行幂数加密可以尝试1</p>
@@ -1296,7 +1306,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.5k</span>&nbsp;字
+                class="white-color">3.6k</span>&nbsp;字
             
             
             
