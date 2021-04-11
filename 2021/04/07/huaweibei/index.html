@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.1k
                 </div>
                 
 
@@ -647,6 +647,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import binascii</span><br><span class="line">import struct</span><br><span class="line"></span><br><span class="line">misc&#x3D;open(&#39;&#x2F;home&#x2F;mlf&#x2F;Desktop&#x2F;1.png&#39;,&#39;rb&#39;).read()</span><br><span class="line"></span><br><span class="line">for i in range(1024):</span><br><span class="line">    data&#x3D;misc[12:16]+struct.pack(&#39;&gt;i&#39;,i)+misc[20:29]</span><br><span class="line">    crc32&#x3D;binascii.crc32(data)&amp;0xffffffff</span><br><span class="line">    if crc32 &#x3D;&#x3D; 0x932f8a6b:</span><br><span class="line">        print(i)</span><br></pre></td></tr></table></figure>
 
 <p>对于wireshark文件可以追踪tcp流，打开为原始数据保存，然后使用vim打开，dd删除数据，：打开操作栏，wq离开</p>
+<p>LSB图像（只适用于png和bmp文件）隐写，可以尝试将bmp文件保存为png文件然后再次用stgslove分析</p>
 <h2 id="密码（crypto）"><a href="#密码（crypto）" class="headerlink" title="密码（crypto）"></a>密码（crypto）</h2><p>看到结尾有等号先丢base64（需要与DES区分）,若全文有多个等号丢base32</p>
 <p>多组AB组合可能为培根密码</p>
 <p>对应的幂数加密如果无法对2进行幂数加密可以尝试1</p>
