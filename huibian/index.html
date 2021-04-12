@@ -135,7 +135,7 @@
       
       <i class="fas fa-list" style="zoom: 0.6;"></i>
       
-      <span>Medias</span>
+      <span>笔记</span>
       <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
     <ul class="sub-nav menus_item_child ">
@@ -295,7 +295,7 @@
 			
 				<i class="fa-fw fas fa-list"></i>
 			
-			Medias
+			笔记
 			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
             <ul  style="background:  ;" >
@@ -564,7 +564,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-09
+                    2021-04-12
                 </div>
                 
 
@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6k
+                    6.1k
                 </div>
                 
 
@@ -901,6 +901,15 @@
 <p>下面指令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov sp,10h</span><br><span class="line">mov ax,0123h</span><br><span class="line">mov ds:[0],ax</span><br><span class="line">mov word ptr ds:[2],0</span><br><span class="line">call dword ptr ds:[0]</span><br></pre></td></tr></table></figure>
 <p>执行完，(CS)=0，(IP)=0123h，(sp)=0ch<br>放入CS,IP后从内存单元地址读入CS和IP</p>
+<h3 id="mul指令"><a href="#mul指令" class="headerlink" title="mul指令"></a>mul指令</h3><p>乘法指令：两个数相乘只能是均为8位或均为16位</p>
+<p>1.均为8位：一个默认放在AL中，另一个放在reg或内存单元中，结果默认存在AX中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov al,100</span><br><span class="line">mov bl,10</span><br><span class="line">mul b1</span><br></pre></td></tr></table></figure>
+
+<p>(ax)=1000(03E8)H</p>
+<p>2.均为16位：一个默认存在AX中，另一个存放在16位reg或内存字单元中，结果高位存在DX中，低位在AX中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ax,100</span><br><span class="line">mov bx,10</span><br><span class="line">mul bx</span><br></pre></td></tr></table></figure>
+
+<p>(ax)=4240H，(dx)=000FH</p>
 
                 
             </div>
@@ -1156,7 +1165,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
                             </span>
                         <span class="publish-author">
                             
@@ -1194,7 +1203,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
                             </span>
                         <span class="publish-author">
                             
