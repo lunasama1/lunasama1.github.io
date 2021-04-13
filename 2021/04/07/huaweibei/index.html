@@ -658,6 +658,8 @@
 <p>sox -t wav 文件名 -esigned-integer -b16 -r 22050 -t raw latlong.raw</p>
 <p>然后：multimon-ng -t raw -a AFSK1200 文件名</p>
 <p>解出答案</p>
+<h3 id="盲水印"><a href="#盲水印" class="headerlink" title="盲水印"></a>盲水印</h3><p>盲水印：python3 bwmforpy3.py decode fuli.png fuli2.png out.png –oldseed</p>
+<p>差分曼彻斯特编码它是改进型的曼彻斯特编码，其特点是在每一位周期的中间，波形都有变化，如果在两位周期交界处电平没有变化，则表示“1”：有变化，则表示“0”</p>
 <h2 id="密码（crypto）"><a href="#密码（crypto）" class="headerlink" title="密码（crypto）"></a>密码（crypto）</h2><p>看到结尾有等号先丢base64（需要与DES区分）,若全文有多个等号丢base32</p>
 <p>多组AB组合可能为培根密码</p>
 <p>对应的幂数加密如果无法对2进行幂数加密可以尝试1</p>
@@ -670,8 +672,6 @@
 <p><img src="/png/42.png"></p>
 <p><img src="/png/43.png"></p>
 <p>对于ecc题目可以直接用ecctool进行解决对应输入后使用calc r解出k(x,y)公钥</p>
-<p>盲水印：python3 bwmforpy3.py decode fuli.png fuli2.png out.png –oldseed</p>
-<p>差分曼彻斯特编码它是改进型的曼彻斯特编码，其特点是在每一位周期的中间，波形都有变化，如果在两位周期交界处电平没有变化，则表示“1”：有变化，则表示“0”</p>
 <h1 id="ctf比赛题目"><a href="#ctf比赛题目" class="headerlink" title="ctf比赛题目"></a>ctf比赛题目</h1><h2 id="2020暨大新生杯"><a href="#2020暨大新生杯" class="headerlink" title="2020暨大新生杯"></a>2020暨大新生杯</h2><h3 id="密码类："><a href="#密码类：" class="headerlink" title="密码类："></a>密码类：</h3><p>碰碰车：</p>
 <p>对应三个未知变量直接用python3，对应的ascii（128）进行遍历，给出代码：</p>
 <p>已知线索：md5(AGVSCF?TZV?WBGVHC?U)=a8f738??????5ea5??????80865???af</p>
