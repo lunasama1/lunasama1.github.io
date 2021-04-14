@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    3.4k
                 </div>
                 
 
@@ -648,6 +648,7 @@
 
 <p>对于wireshark文件可以追踪tcp流，打开为原始数据保存，然后使用vim打开，dd删除数据，：打开操作栏，wq离开</p>
 <p>LSB图像（只适用于png和bmp文件）隐写，可以尝试将bmp文件保存为png文件然后再次用stgslove分析</p>
+<p>.vmck文件可以直接用zip解压，获得文件，可能需要注意文件后的特殊二进制</p>
 <h3 id="AX-25（Amateur-X-25）"><a href="#AX-25（Amateur-X-25）" class="headerlink" title="AX.25（Amateur X.25）"></a>AX.25（Amateur X.25）</h3><p>ax.25是数据链路层协议套件，旨在供业余无线电运营商使用</p>
 <p>AX.25协议在物理层使用BFSK调制</p>
 <p>对于音频文件可以尝试观察频谱（分析-频谱分析）</p>
@@ -660,6 +661,13 @@
 <p>解出答案</p>
 <h3 id="盲水印"><a href="#盲水印" class="headerlink" title="盲水印"></a>盲水印</h3><p>盲水印：python3 bwmforpy3.py decode fuli.png fuli2.png out.png –oldseed</p>
 <p>差分曼彻斯特编码它是改进型的曼彻斯特编码，其特点是在每一位周期的中间，波形都有变化，如果在两位周期交界处电平没有变化，则表示“1”：有变化，则表示“0”</p>
+<h3 id="logicdata"><a href="#logicdata" class="headerlink" title=".logicdata"></a>.logicdata</h3><p>可以使用salese logic打开选择右侧添加分析器spi，对应的选择通道分析，比如2-1-0-3</p>
+<h3 id="sql"><a href="#sql" class="headerlink" title="sql"></a>sql</h3><p>可使用strings获得被删除的数据包具体操作，进入linux</p>
+<p><img src="/png/ctf38.png"></p>
+<p>进入与之对应的文件夹</p>
+<p><img src="/png/ctf39.png"></p>
+<p>mysql_upgrade_info | grep ‘flag’ </p>
+<p>逐个替换寻找</p>
 <h2 id="密码（crypto）"><a href="#密码（crypto）" class="headerlink" title="密码（crypto）"></a>密码（crypto）</h2><p>看到结尾有等号先丢base64（需要与DES区分）,若全文有多个等号丢base32</p>
 <p>多组AB组合可能为培根密码</p>
 <p>对应的幂数加密如果无法对2进行幂数加密可以尝试1</p>
@@ -1308,7 +1316,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.7k</span>&nbsp;字
+                class="white-color">3.8k</span>&nbsp;字
             
             
             
