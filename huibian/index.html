@@ -564,7 +564,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-12
+                    2021-04-19
                 </div>
                 
 
@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.1k
+                    7.1k
                 </div>
                 
 
@@ -795,7 +795,7 @@
 <p>2.被除数默认存放在AX或DX和AX中，如果除数为8位，被除数则为16位，默认在AX中存放：如果除数为16位，被除数则为32位，在DX和AX中存放，DX存放高16位，AX存放低16位。</p>
 <p>3.结果：如果除数为8位，则AL存储除法操作的商，AH存储除法操作的余数；如果除数为16位，则AX存储除法操作的商，DX存储除法操作的余数。</p>
 <p>div byte ptr ds:[0]<br>表示(al)=(ax)/((ds)*16+0)的商<br>(ah)=(ax)/((ds)*16+0)的余数</p>
-<p>div byte ptr es:[0]<br>表示(ax)=[(dx)*10000h+(ax)]/((es)*16+0)的商<br>(dx)=[(dx)*10000h+(ax)]/((es)*16+0)的余数</p>
+<p>div word ptr es:[0]<br>表示(ax)=[(dx)*10000h+(ax)]/((es)*16+0)的商<br>(dx)=[(dx)*10000h+(ax)]/((es)*16+0)的余数</p>
 <p><code>编程计算100001/100的思路</code></p>
 <p>被除数100001大于65535因此用dx和ax两个寄存器联合存放100001，因此要进行16位的除法。除数100小于255，因此可以用8位寄存器存放。但被除数是32位，除数应为16位，所以要用一个16位寄存器来存放除数100。</p>
 <p>100001=186a1h</p>
@@ -910,6 +910,55 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ax,100</span><br><span class="line">mov bx,10</span><br><span class="line">mul bx</span><br></pre></td></tr></table></figure>
 
 <p>(ax)=4240H，(dx)=000FH</p>
+<h2 id="标志寄存器"><a href="#标志寄存器" class="headerlink" title="标志寄存器"></a>标志寄存器</h2><p>13个寄存器：ax,bx,cx,dx,si,di,bp,sp,ip,cs,ss,ds,es</p>
+<p><img src="./index/huibian8.png"></p>
+<h3 id="ZF标志"><a href="#ZF标志" class="headerlink" title="ZF标志"></a>ZF标志</h3><p>flag的第六位是ZF，零标志位。他记录相关指令执行后，结果是否为0。如果结果为0，那么zf=1；如果结果不为0，那么zf=0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax,1</span><br><span class="line">sub ax,1  执行后结果为0，zf&#x3D;1</span><br><span class="line">mov ax,2</span><br><span class="line">sub ax,1  执行后结果不为0，zh&#x3D;0</span><br></pre></td></tr></table></figure>
+
+<h3 id="PF标志"><a href="#PF标志" class="headerlink" title="PF标志"></a>PF标志</h3><p>flag的第二位是pf，奇偶标志位。他记录相关指令执行后，其结果的所有bit位中1的个数是否为偶数。如果1的个数为偶数，pf=1，如果为奇数，那么pf=0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov al,1</span><br><span class="line">add al,10  执行结果为00001011b，其中有3个1，则pf&#x3D;0;</span><br><span class="line">mov al,1</span><br><span class="line">or al,2    执行结果为00000011b，其中有2个1，则pf&#x3D;1；</span><br></pre></td></tr></table></figure>
+
+<h3 id="SF标志"><a href="#SF标志" class="headerlink" title="SF标志"></a>SF标志</h3><p>flag的第七位是sf，符号标志位。他记录相关指令执行后，其结果是否为负。如果结果为负，sf=1，如果非负，那么sf=0</p>
+<p>计算机用补码表示有符号数据。计算机中的一个数据既可看作是有符号数，也可以看成是无符号数。</p>
+<p>对同一个二进制数据，计算机可以将其作为有符号数或无符号数运算。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov al,10000001b</span><br><span class="line">add al,1    结果均为10000010b包含两种结果：无符号数130，有符号数-126</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov al,10000001b</span><br><span class="line">add al,1    结果为10000010b，sf&#x3D;1，表示如果进行有符号数运算，那么结果为负</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov al,10000001b</span><br><span class="line">add al,01111111b  结果为0，sf&#x3D;0，表示如果进行有符号数运算，那么结果为非负</span><br></pre></td></tr></table></figure>
+
+<h3 id="CF标志"><a href="#CF标志" class="headerlink" title="CF标志"></a>CF标志</h3><p>flag的第0位是cf，进位标志位。一般的，在进行<code>无符号数运算</code>时，他记录运算结果的最高有效位向更高位的进位值，或更高位的错位值。</p>
+<p>对于位数为N的无符号数而言，其对应的二进制信息的最高位，即N-1位，即最高有效位 。假想的更高位则是最高位+1位。</p>
+<p>当两个数据相加时，有可能产生从最高有效位向更高位的进位，这个进位值会用CF位进行记录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov al,98h</span><br><span class="line">add al,al   执行后(al)&#x3D;30h，CF&#x3D;1</span><br><span class="line">add al,al   执行后(al)&#x3D;60h，CF&#x3D;0</span><br></pre></td></tr></table></figure>
+
+<p>当两个数据做减法时，有可能向更高位借位。比如，两个8位数据：97H-98H，将产生借位，借位后，相当于计算197H-98H。而CF位会用来记录这个错位值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov al,97h</span><br><span class="line">sub al,98h     执行后：(al)&#x3D;FFH，CF&#x3D;1</span><br><span class="line">sub al,al      执行后：(al)&#x3D;0，CF&#x3D;0</span><br></pre></td></tr></table></figure>
+
+<h3 id="OF标志"><a href="#OF标志" class="headerlink" title="OF标志"></a>OF标志</h3><p>flag的第11位是OF，溢出标志位。一般情况下，他记录<code>有符号数运算</code>的结果是否发生了溢出。区别于CF，OF是对有符号数运算有意义的标志位。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov al,98</span><br><span class="line">add al,99  </span><br></pre></td></tr></table></figure>
+
+<p>执行完之后：CF=0,OF=1，还需要用SF位记录结果的符号，对于无符号数，98+99没有进位，CF=0;对于有符号数运算，98+99发生溢出，OF=1</p>
+<h3 id="adc指令"><a href="#adc指令" class="headerlink" title="adc指令"></a>adc指令</h3><p>adc是带进位加法指令，它利用了cf位上记录的进位值。</p>
+<p>指令格式：adc 操作对象1，操作对象2</p>
+<p>功能：操作对象1=操作对象1+操作对象2+CF</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax,2</span><br><span class="line">mov bx,1</span><br><span class="line">sub bx,ax</span><br><span class="line">adc ax,1</span><br></pre></td></tr></table></figure>
+
+<p>(ax)=(ax)+1+CF=2+1+1=4</p>
+<p>add ax,bx等价于<br>add al,bl<br>adc ah,bh</p>
+<p>计算 1EF0001000H+2010001EF0H,结果放在ax（高16位）和bx（低16位）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mov ax,001eh</span><br><span class="line">mov bx,0f000h</span><br><span class="line">mov cx,1000h</span><br><span class="line">add cx,1ef0h</span><br><span class="line">adc bx,1000h</span><br><span class="line">adc ax,20h</span><br></pre></td></tr></table></figure>
+
+<h3 id="sbb指令"><a href="#sbb指令" class="headerlink" title="sbb指令"></a>sbb指令</h3><p>sbb是带错位减法指令，它利用了CF位上记录的错位值。</p>
+<p>指令格式：sbb 操作对象1，操作对象2</p>
+<p>功能：操作对象1=操作对象1-操作对象2-CF</p>
+<p>计算003e1000h-00202000h，结果放在ax,bx中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov bx,1000h</span><br><span class="line">mov ax,003eh</span><br><span class="line">sub bx,2000h</span><br><span class="line">sbb ax,0020h</span><br></pre></td></tr></table></figure>
+
+<h3 id="cmp指令"><a href="#cmp指令" class="headerlink" title="cmp指令"></a>cmp指令</h3><p>cmp是比较指令，cmp相当于减法指令，但不保存结果。执行完后，会对标志寄存器产生影响。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ax,8</span><br><span class="line">mov bx,3</span><br><span class="line">cmp ax,bx</span><br></pre></td></tr></table></figure>
+
+<p>执行后：(ax)=8,zf=0,pf=1,sf=0,cf=0,of=0</p>
 
                 
             </div>
@@ -1165,7 +1214,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-19
                             </span>
                         <span class="publish-author">
                             
@@ -1203,7 +1252,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-19
                             </span>
                         <span class="publish-author">
                             
@@ -1413,7 +1462,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.8k</span>&nbsp;字
+                class="white-color">3.9k</span>&nbsp;字
             
             
             
