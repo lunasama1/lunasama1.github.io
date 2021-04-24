@@ -959,6 +959,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ax,8</span><br><span class="line">mov bx,3</span><br><span class="line">cmp ax,bx</span><br></pre></td></tr></table></figure>
 
 <p>执行后：(ax)=8,zf=0,pf=1,sf=0,cf=0,of=0</p>
+<p>对于无符号数可以通过标志位判断数值比较结果</p>
+<p>如果zf=1,ax=bx<br>zf=0,ax!=bx<br>cf=1,ax&lt;\bx<br>cf=0,ax&gt;=bx<br>cf=0并且zf=0，说明ax&gt;bx<br>cf=1或zf=1，说明ax&lt;=bx</p>
 
                 
             </div>
@@ -1462,7 +1464,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.9k</span>&nbsp;字
+                class="white-color">4k</span>&nbsp;字
             
             
             
