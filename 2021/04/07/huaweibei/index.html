@@ -657,6 +657,7 @@
 <p>f5隐写：java Extract /绝对路径 [-p 密码] [-e 输出文件]</p>
 <p>用 lsb 解密脚本 python lsb.py extract keyword.png out lovekfc</p>
 <p>遇见特殊字符如摂m墷m卪倕ⅲm仈Z，可以尝试用01editor打开尝试不同编码方法</p>
+<p>给了较多压缩包，但压缩包较小时，可能为CRC爆破</p>
 <h3 id="AX-25（Amateur-X-25）"><a href="#AX-25（Amateur-X-25）" class="headerlink" title="AX.25（Amateur X.25）"></a>AX.25（Amateur X.25）</h3><p>ax.25是数据链路层协议套件，旨在供业余无线电运营商使用</p>
 <p>AX.25协议在物理层使用BFSK调制</p>
 <p>对于音频文件可以尝试观察频谱（分析-频谱分析）</p>
@@ -676,6 +677,7 @@
 <p><img src="/png/ctf39.png"></p>
 <p>mysql_upgrade_info | grep ‘flag’ </p>
 <p>逐个替换寻找</p>
+<h3 id="rar加密格式"><a href="#rar加密格式" class="headerlink" title="rar加密格式"></a>rar加密格式</h3><p><img src="/png/ctf41.png"></p>
 <h3 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h3><p>我们知道504B0102是表示zip的目录区，在标记出来的区域有一个1，表示这里加密了，但是在全局加密的位置，没有这个标记，所以可以判断这张图片是一个伪加密，修改过来，成功解压</p>
 <p><img src="/png/ctf40.png"></p>
 <p>steghide extract -sf good.jpg获得隐藏文件</p>
@@ -1327,7 +1329,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4k</span>&nbsp;字
+                class="white-color">4.1k</span>&nbsp;字
             
             
             

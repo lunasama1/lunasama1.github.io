@@ -564,7 +564,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-19
+                    2021-04-26
                 </div>
                 
 
@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.1k
+                    7.5k
                 </div>
                 
 
@@ -961,6 +961,51 @@
 <p>执行后：(ax)=8,zf=0,pf=1,sf=0,cf=0,of=0</p>
 <p>对于无符号数可以通过标志位判断数值比较结果</p>
 <p>如果zf=1,ax=bx<br>zf=0,ax!=bx<br>cf=1,ax&lt;\bx<br>cf=0,ax&gt;=bx<br>cf=0并且zf=0，说明ax&gt;bx<br>cf=1或zf=1，说明ax&lt;=bx</p>
+<p><code>对有符号数的判定</code></p>
+<p>1.如果sf=1，而of=0：<br>of=0说明没有溢出，逻辑上真正结果的正负=实际结果的正负<br>sf=1实际结果为负，所以逻辑上真正的结果为负，所以(ah)&lt;(bh)</p>
+<p>2.如果sf=1，而of=1：<br>of=1说明有溢出，逻辑上真正结果的正负!=实际结果的正负<br>sf=1实际结果为负，故是因溢出导致了实际结果为负，因此逻辑上的真正结果为正(ah)&gt;(bh)</p>
+<p>3.如果sf=0，而of=1：<br>of=1说明有溢出，逻辑上真正结果的正负!=实际结果的正负<br>sf=0，实际结果非负，而of=1说明是因溢出导致实际结果为正，那么逻辑上真正的结果为负(ah)&lt;(bh)</p>
+<p>4.如果sf=0，而of=0：<br>of=0说明没有溢出，逻辑上真正结果的正负=实际结果的正负<br>sf=0，实际结果非负，所以逻辑上真正的结果非负，所以(ah)&gt;=(bh)</p>
+<p>根据无符号数的比较结果进行转移的条件转移指令</p>
+<table>
+<thead>
+<tr>
+<th align="center">指令</th>
+<th align="center">含义</th>
+<th align="center">检测的相关标志位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">je</td>
+<td align="center">等于则转移</td>
+<td align="center">zf=1</td>
+</tr>
+<tr>
+<td align="center">jne</td>
+<td align="center">不等于则转移</td>
+<td align="center">zf=0</td>
+</tr>
+<tr>
+<td align="center">jb</td>
+<td align="center">低于则转移</td>
+<td align="center">cf=1</td>
+</tr>
+<tr>
+<td align="center">jnb</td>
+<td align="center">不低于则转移</td>
+<td align="center">cf=0</td>
+</tr>
+<tr>
+<td align="center">ja</td>
+<td align="center">高于则转移</td>
+<td align="center">cf=0且zf=0</td>
+</tr>
+<tr>
+<td align="center">jna</td>
+<td align="center">不高于则转移</td>
+<td align="center">cf=1且zf=1</td>
+</tr>
+</tbody></table>
 
                 
             </div>
@@ -1216,7 +1261,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-26
                             </span>
                         <span class="publish-author">
                             
@@ -1254,7 +1299,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-26
                             </span>
                         <span class="publish-author">
                             
@@ -1464,7 +1509,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4k</span>&nbsp;字
+                class="white-color">4.1k</span>&nbsp;字
             
             
             
