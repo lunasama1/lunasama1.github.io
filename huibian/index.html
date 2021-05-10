@@ -564,7 +564,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-26
+                    2021-05-10
                 </div>
                 
 
@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.5k
+                    7.9k
                 </div>
                 
 
@@ -1006,6 +1006,24 @@
 <td align="center">cf=1且zf=1</td>
 </tr>
 </tbody></table>
+<h3 id="DF标志和串传送指令"><a href="#DF标志和串传送指令" class="headerlink" title="DF标志和串传送指令"></a>DF标志和串传送指令</h3><p>flag的第十位是DF，方向标志位。在串处理指令中，控制每次操作后si，di的增减。</p>
+<p>df=0   每次操作后si，di递增<br>df=1   每次操作后si，di递减</p>
+<p>格式：movsb<br>功能：执行movsb指令相当于进行下面操作（逐字节传送）</p>
+<p>1.((es)*16+(di))=((ds)*16+(si))<br>2.如果df=0，则：(si)=(si)+1  ；(di)=(di)+1<br>  如果df=1，则：(si)=(si)-1  ；(di)=(di)-1</p>
+<p>格式：movsw<br>功能：执行movsb指令相当于进行下面操作（逐字传送）</p>
+<p>1.((es)*16+(di))=((ds)*16+(si))<br>2.如果df=0，则：(si)=(si)+2  ；(di)=(di)+2<br>  如果df=1，则：(si)=(si)-2  ；(di)=(di)-2</p>
+<p>movsb和movsw配合使用：</p>
+<p>rep movsb<br>功能：</p>
+<p>s:movsb<br>loop s</p>
+<p>rep根据cx的值，重复执行后面的串传送指令。因此实现循环实现(cx)个字符的传送。</p>
+<p>以下展示课本用法：<br>变成将data段中的第一个字符串复制到它后面的空间中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data segment</span><br><span class="line">  db &#39;Welcome to wasm!&#39;</span><br><span class="line">  db 16 dup (0)</span><br><span class="line">data ends</span><br></pre></td></tr></table></figure>
+
+<p>传送的原始位置：data:0;<br>传送的目的位置：data:0010;<br>传送的长度：16；<br>传送的方向，正向传送，因此 设置df=0(cld)；<br>ps:若反向传送，设置df=1(std)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mov ax,data</span><br><span class="line">mov ds,ax</span><br><span class="line">mov si,0     ds:si指向data:0</span><br><span class="line">mov es,ax</span><br><span class="line">mov di,16    es:di指向data:0010</span><br><span class="line">mov cx,16    (cx)&#x3D;16,rep循环16次</span><br><span class="line">cld          设置df&#x3D;0，正向传送</span><br><span class="line">rep movsb</span><br></pre></td></tr></table></figure>
+
+<h3 id="pushf和popf"><a href="#pushf和popf" class="headerlink" title="pushf和popf"></a>pushf和popf</h3><p>执行操作: SP=SP-1,(SP)=PSW的高8位, SP=SP-1, (SP)=PSW的低8位</p>
+<p><img src="./index/huibian8.png"></p>
 
                 
             </div>
@@ -1261,7 +1279,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-10
                             </span>
                         <span class="publish-author">
                             
@@ -1299,7 +1317,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-10
                             </span>
                         <span class="publish-author">
                             
@@ -1509,7 +1527,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.2k</span>&nbsp;字
+                class="white-color">4.3k</span>&nbsp;字
             
             
             

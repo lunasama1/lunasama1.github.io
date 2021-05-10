@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.8k
+                    3.9k
                 </div>
                 
 
@@ -667,6 +667,8 @@
 <p>EXIF查看图片信息</p>
 <p>BPG图片查看（以自己为例，放在本机用户名下(windows)）,命令：bpgview.exe xxx.bpg（需要下载BPG Image format）网址：<a target="_blank" rel="noopener" href="https://bellard.org/bpg/">https://bellard.org/bpg/</a></p>
 <p>Stegosaurus隐写（剑龙隐写,解密）：python3 stegosaurus.py -x xxx.pyc</p>
+<p>steghide隐写： steghide extract -sf out.wav</p>
+<p>FAT文件就可以使用VeraCrypt进行挂载</p>
 <h3 id="AX-25（Amateur-X-25）"><a href="#AX-25（Amateur-X-25）" class="headerlink" title="AX.25（Amateur X.25）"></a>AX.25（Amateur X.25）</h3><p>ax.25是数据链路层协议套件，旨在供业余无线电运营商使用</p>
 <p>AX.25协议在物理层使用BFSK调制</p>
 <p>对于音频文件可以尝试观察频谱（分析-频谱分析）</p>
@@ -677,6 +679,9 @@
 <p>sox -t wav 文件名 -esigned-integer -b16 -r 22050 -t raw latlong.raw</p>
 <p>然后：multimon-ng -t raw -a AFSK1200 文件名</p>
 <p>解出答案</p>
+<h2 id="qsstv"><a href="#qsstv" class="headerlink" title="qsstv"></a>qsstv</h2><p>慢扫描电视隐写：</p>
+<p>ubuntu打开qsstv选择：Options-&gt;Configuration-&gt;Sound勾选From file</p>
+<p>点击播放按钮，选择音频文件读入</p>
 <h3 id="盲水印"><a href="#盲水印" class="headerlink" title="盲水印"></a>盲水印</h3><p>盲水印：<code>python3 bwmforpy3.py decode fuli.png fuli2.png out.png --oldseed</code></p>
 <p>差分曼彻斯特编码它是改进型的曼彻斯特编码，其特点是在每一位周期的中间，波形都有变化，如果在两位周期交界处电平没有变化，则表示“1”：有变化，则表示“0”</p>
 <p>盲水印plus：<code>python decode.py --original 1.png --image 2.png --result out.png</code></p>
@@ -1343,7 +1348,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.2k</span>&nbsp;字
+                class="white-color">4.3k</span>&nbsp;字
             
             
             
