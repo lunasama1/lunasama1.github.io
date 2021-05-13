@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    4.1k
                 </div>
                 
 
@@ -669,6 +669,20 @@
 <p>Stegosaurus隐写（剑龙隐写,解密）：python3 stegosaurus.py -x xxx.pyc</p>
 <p>steghide隐写： steghide extract -sf out.wav</p>
 <p>FAT文件就可以使用VeraCrypt进行挂载</p>
+<h3 id="内存取证"><a href="#内存取证" class="headerlink" title="内存取证"></a>内存取证</h3><p>对.img文件，记录一次做题记录</p>
+<p><code>volatility -f memory.img imageinfo</code></p>
+<p><img src="/png/ctf42.png"></p>
+<p>得知其为2003sp系统，猜测使用：Win2003SP1x86打开</p>
+<p><code>volatility -f memory.img --profile=Win2003SP1x86 pslist</code></p>
+<p><img src="/png/ctf43.png"></p>
+<p>发现DumpIt.exe，查看cmd命令使用记录</p>
+<p><code>volatility -f memory.img --profile=Win2003SP1x86 cmdscan</code></p>
+<p><img src="/png/ctf44.png"></p>
+<p>发现Flag字样，将DumpIt.exe这个程序dump下来</p>
+<p><code>volatility -f memory.img --profile=Win2003SP1x86 memdump -p 1992 --dump-dir=./</code></p>
+<p><img src="/png/ctf45.png"></p>
+<p>foremost分离1992.dmp发现含有key,iv以及二维码，二维码解密获得一串字符，根据iv,key推断出为AES密码</p>
+<p>解密获得flag</p>
 <h3 id="AX-25（Amateur-X-25）"><a href="#AX-25（Amateur-X-25）" class="headerlink" title="AX.25（Amateur X.25）"></a>AX.25（Amateur X.25）</h3><p>ax.25是数据链路层协议套件，旨在供业余无线电运营商使用</p>
 <p>AX.25协议在物理层使用BFSK调制</p>
 <p>对于音频文件可以尝试观察频谱（分析-频谱分析）</p>
@@ -679,7 +693,7 @@
 <p>sox -t wav 文件名 -esigned-integer -b16 -r 22050 -t raw latlong.raw</p>
 <p>然后：multimon-ng -t raw -a AFSK1200 文件名</p>
 <p>解出答案</p>
-<h2 id="qsstv"><a href="#qsstv" class="headerlink" title="qsstv"></a>qsstv</h2><p>慢扫描电视隐写：</p>
+<h3 id="qsstv"><a href="#qsstv" class="headerlink" title="qsstv"></a>qsstv</h3><p>慢扫描电视隐写：</p>
 <p>ubuntu打开qsstv选择：Options-&gt;Configuration-&gt;Sound勾选From file</p>
 <p>点击播放按钮，选择音频文件读入</p>
 <h3 id="盲水印"><a href="#盲水印" class="headerlink" title="盲水印"></a>盲水印</h3><p>盲水印：<code>python3 bwmforpy3.py decode fuli.png fuli2.png out.png --oldseed</code></p>
@@ -696,6 +710,20 @@
 <p><img src="/png/ctf39.png"></p>
 <p>mysql_upgrade_info | grep ‘flag’ </p>
 <p>逐个替换寻找</p>
+<h3 id="802-11无线网络"><a href="#802-11无线网络" class="headerlink" title="802.11无线网络"></a>802.11无线网络</h3><p>无线网络分析并且字典破解密码：aircrack-ng cacosmia.cap -w /home/mlf/Desktop/2.txt</p>
+<p><img src="/png/ctf46.png"></p>
+<p>获得密码12345678</p>
+<p><img src="/png/ctf47.png"></p>
+<p>在tcp流第31流中发现压缩文件和flag</p>
+<p><img src="/png/ctf48.png"></p>
+<p>分离出图片和zip，图片没用，zip有密码。因此回到pacp中找答案</p>
+<p><img src="/png/ctf49.png"></p>
+<p>在session中找到提示，解码获得提示：</p>
+<p><img src="/png/ctf50.png"></p>
+<p>直接去寻找icmp和dns协议，</p>
+<p>最后发现为DNS协议最后一个：</p>
+<p>26rsfb.dnslog.cn</p>
+<p>解码获得flag</p>
 <h3 id="rar加密格式"><a href="#rar加密格式" class="headerlink" title="rar加密格式"></a>rar加密格式</h3><p><img src="/png/ctf41.png"></p>
 <h3 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h3><p>我们知道504B0102是表示zip的目录区，在标记出来的区域有一个1，表示这里加密了，但是在全局加密的位置，没有这个标记，所以可以判断这张图片是一个伪加密，修改过来，成功解压</p>
 <p><img src="/png/ctf40.png"></p>
@@ -1348,7 +1376,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.3k</span>&nbsp;字
+                class="white-color">4.6k</span>&nbsp;字
             
             
             
