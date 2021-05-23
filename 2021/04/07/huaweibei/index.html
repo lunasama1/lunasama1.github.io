@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.1k
+                    4.2k
                 </div>
                 
 
@@ -669,6 +669,11 @@
 <p>Stegosaurus隐写（剑龙隐写,解密）：python3 stegosaurus.py -x xxx.pyc</p>
 <p>steghide隐写： steghide extract -sf out.wav</p>
 <p>FAT文件就可以使用VeraCrypt进行挂载</p>
+<p>适用于压缩包内较小的文件，直接CRC爆破（最后一个为CRC码）：python crc32.py reverse 0xcc86365b</p>
+<p>ntfs流隐写可以使用ntfsstreameditor进行查看与导出</p>
+<p>查看gif图片帧距（时间） identify -format “%T\n” xxx.gif </p>
+<p>搜索信息 strings 1.pcapng | grep flag</p>
+<p>对文件名base64解析：ls|tr -d ‘ ‘|base64 -d </p>
 <h3 id="内存取证"><a href="#内存取证" class="headerlink" title="内存取证"></a>内存取证</h3><p>对.img文件，记录一次做题记录</p>
 <p><code>volatility -f memory.img imageinfo</code></p>
 <p><img src="/png/ctf42.png"></p>

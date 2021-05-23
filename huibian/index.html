@@ -564,7 +564,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-10
+                    2021-05-17
                 </div>
                 
 
@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.9k
+                    8.5k
                 </div>
                 
 
@@ -1026,6 +1026,35 @@
 
 <h3 id="pushf和popf"><a href="#pushf和popf" class="headerlink" title="pushf和popf"></a>pushf和popf</h3><p>执行操作: SP=SP-1,(SP)=PSW的高8位, SP=SP-1, (SP)=PSW的低8位</p>
 <p><img src="./index/huibian8.png"></p>
+<h2 id="内中断"><a href="#内中断" class="headerlink" title="内中断"></a>内中断</h2><h3 id="中断向量表"><a href="#中断向量表" class="headerlink" title="中断向量表"></a>中断向量表</h3><p>中断向量表在内存中保存，存放着256个中断源对应的中断处理程序入口。</p>
+<p>对于8086pc机，中断向量表指定放在内存地址0处。从内存0000:0000到0000:03FF的1024个单元中存放着中断向量表。</p>
+<p>每个中断向量占两个字，高地址字段存放段地址，低地址字段存放偏移地址。</p>
+<p>因此n号中断源对应的中断程序入口的偏移地址值的内存单元地址为4*N，段地址为4*N+2。</p>
+<h3 id="中断过程"><a href="#中断过程" class="headerlink" title="中断过程"></a>中断过程</h3><p>1.取得中断类型码N；</p>
+<p>2.pushf</p>
+<p>3.TF=0,IF=0</p>
+<p>4.push CS</p>
+<p>5.push IP</p>
+<p>6.(IP)=(N*4),(CS)=(N*4+2)</p>
+<h3 id="iret指令"><a href="#iret指令" class="headerlink" title="iret指令"></a>iret指令</h3><p>iret指令和硬件完成的中断过程配合使用。执行iret指令后，CPU回到执行中断处理程序之前的执行点继续执行。</p>
+<p>iret作用：</p>
+<p>pop IP<br>pop CS<br>popf</p>
+<h3 id="除法中断与输出"><a href="#除法中断与输出" class="headerlink" title="除法中断与输出"></a>除法中断与输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:mov ax,cs</span><br><span class="line">mov ds,ax</span><br><span class="line">mov si,offset do0                    ;设置ds:si指向源地址</span><br><span class="line">mov ax,0</span><br><span class="line">mov es,ax</span><br><span class="line">mov di,200h                          ;设置es:di指向目的地址 </span><br><span class="line">mov cx,offset do0end-offset do0      ;设置cx为传输长度</span><br><span class="line">cld                                  ;设置传输方向为正</span><br><span class="line">rep movsb</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line"></span><br><span class="line">do0:jmp short do0start</span><br><span class="line">db &quot;overflow!&quot;</span><br><span class="line"></span><br><span class="line">do0start:mov ax,cs</span><br><span class="line">mov ds,ax</span><br><span class="line">mov si,202h                          ;设置ds:si指向字符串</span><br><span class="line">mov ax,0b800h</span><br><span class="line">mov es,ax</span><br><span class="line">mov di,12*160+36*2                   ;设置es:di指向显存空间的中间位置</span><br><span class="line">mov cx,9                             ;设置cx为字符串长度</span><br><span class="line"></span><br><span class="line">s:mov al,[si]</span><br><span class="line">mov es:[di],al</span><br><span class="line">inc si</span><br><span class="line">add di,2</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line"></span><br><span class="line">do0end:nop</span><br><span class="line">code ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<h2 id="int指令"><a href="#int指令" class="headerlink" title="int指令"></a>int指令</h2><p>int指令的格式为：int n，n为中断类型码，用于引发中断。</p>
+<p>CPU执行int n指令，相当于印发一个n号中断。过程如下（IF为中断标志，1允许，0禁止）</p>
+<p>1.取中断类型码n;</p>
+<p>2.标志寄存器入栈，IF=0,TF=0;</p>
+<p>3.CS,IP入栈;</p>
+<p>4.(IP)=(n*4),(CS)=(n*4+2)</p>
+<h3 id="供应用程序调用的中断例程"><a href="#供应用程序调用的中断例程" class="headerlink" title="供应用程序调用的中断例程"></a>供应用程序调用的中断例程</h3><p>编写，安装中断7ch的中断程序</p>
+<p>1.求word型数据的平方，ax=要计算的数据，返回值：在dx,ax中存放高16位和低16位<br>例：求2*3456^2</p>
+<p>进程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:mov ax,cs</span><br><span class="line">mov ds,ax</span><br><span class="line">mov si,offset sqr</span><br><span class="line">mov ax,0</span><br><span class="line">mov es,ax</span><br><span class="line">mov word ptr es:[7ch*4],200h</span><br><span class="line">mov word ptr es:[7ch*4+2],0</span><br><span class="line">mov di,200h</span><br><span class="line">mov cx,offset sqrend-offset sqr</span><br><span class="line">cld</span><br><span class="line">rep movsb</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line"></span><br><span class="line">sqr:mul ax</span><br><span class="line">iret</span><br><span class="line"></span><br><span class="line">sqrend:nop</span><br><span class="line"></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<p>实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:mov ax,3456</span><br><span class="line">int 7ch</span><br><span class="line">add ax,ax</span><br><span class="line">adc dx,dx</span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line"></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
 
                 
             </div>
@@ -1281,7 +1310,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-17
                             </span>
                         <span class="publish-author">
                             
@@ -1319,7 +1348,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-17
                             </span>
                         <span class="publish-author">
                             
