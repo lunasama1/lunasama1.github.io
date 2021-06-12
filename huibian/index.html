@@ -564,7 +564,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-17
+                    2021-06-12
                 </div>
                 
 
@@ -573,7 +573,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.5k
+                    9.9k
                 </div>
                 
 
@@ -603,6 +603,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax,a</span><br><span class="line">mov ss,ax</span><br><span class="line"></span><br><span class="line">其中a为定义的数据段</span><br></pre></td></tr></table></figure>
 
 <p>AH&amp;AL＝AX(accumulator)：累加寄存器<br>BH&amp;BL＝BX(base)：基址寄存器<br>CH&amp;CL＝CX(count)：计数寄存器<br>DH&amp;DL＝DX(data)：数据寄存器<br>SP（Stack Pointer）：堆栈指针寄存器<br>BP（Base Pointer）：基址指针寄存器<br>SI（Source Index）：源变址寄存器<br>DI（Destination Index）：目的变址寄存器<br>IP（Instruction Pointer）：指令指针寄存器<br>CS（Code Segment）代码段寄存器<br>DS（Data Segment）：数据段寄存器<br>SS（Stack Segment）：堆栈段寄存器<br>ES（Extra Segment）：附加段寄存器</p>
+<p>指令效果：</p>
+<p>rep movsb：将ds:si所指地址的一个字节搬移到es:di所指的地址上，移动次数为cx中存放的值</p>
 <h2 id="储存单位与数据关系"><a href="#储存单位与数据关系" class="headerlink" title="储存单位与数据关系"></a>储存单位与数据关系</h2><p>1Byte=8bit    1字=2字节(Byte)      1KB=1024B(Byte)     1MB=1024KB</p>
 <p>基本对应关系：</p>
 <p>!&gt;2^地址总线=寻址能力（Byte）   </p>
@@ -1036,7 +1038,7 @@
 <p>4.push CS</p>
 <p>5.push IP</p>
 <p>6.(IP)=(N*4),(CS)=(N*4+2)</p>
-<h3 id="iret指令"><a href="#iret指令" class="headerlink" title="iret指令"></a>iret指令</h3><p>iret指令和硬件完成的中断过程配合使用。执行iret指令后，CPU回到执行中断处理程序之前的执行点继续执行。</p>
+<h3 id="iret指令"><a href="#iret指令" class="headerlink" title="iret指令"></a>iret指令</h3><p>iret指令和硬件完成的中断过程配合使用。执行iret指令后，CPU回到执行中断处理程序之前的执行点继续执行。(在正常中断中不使用，在自定义中断时，需要写入以实现返回)</p>
 <p>iret作用：</p>
 <p>pop IP<br>pop CS<br>popf</p>
 <h3 id="除法中断与输出"><a href="#除法中断与输出" class="headerlink" title="除法中断与输出"></a>除法中断与输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:mov ax,cs</span><br><span class="line">mov ds,ax</span><br><span class="line">mov si,offset do0                    ;设置ds:si指向源地址</span><br><span class="line">mov ax,0</span><br><span class="line">mov es,ax</span><br><span class="line">mov di,200h                          ;设置es:di指向目的地址 </span><br><span class="line">mov cx,offset do0end-offset do0      ;设置cx为传输长度</span><br><span class="line">cld                                  ;设置传输方向为正</span><br><span class="line">rep movsb</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line"></span><br><span class="line">do0:jmp short do0start</span><br><span class="line">db &quot;overflow!&quot;</span><br><span class="line"></span><br><span class="line">do0start:mov ax,cs</span><br><span class="line">mov ds,ax</span><br><span class="line">mov si,202h                          ;设置ds:si指向字符串</span><br><span class="line">mov ax,0b800h</span><br><span class="line">mov es,ax</span><br><span class="line">mov di,12*160+36*2                   ;设置es:di指向显存空间的中间位置</span><br><span class="line">mov cx,9                             ;设置cx为字符串长度</span><br><span class="line"></span><br><span class="line">s:mov al,[si]</span><br><span class="line">mov es:[di],al</span><br><span class="line">inc si</span><br><span class="line">add di,2</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line"></span><br><span class="line">do0end:nop</span><br><span class="line">code ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
@@ -1055,6 +1057,59 @@
 <p>实例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:mov ax,3456</span><br><span class="line">int 7ch</span><br><span class="line">add ax,ax</span><br><span class="line">adc dx,dx</span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line"></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 
+<h3 id="对int-iret和栈的深入理解"><a href="#对int-iret和栈的深入理解" class="headerlink" title="对int,iret和栈的深入理解"></a>对int,iret和栈的深入理解</h3><p>使用7ch中断例程完成loop指令的功能：</p>
+<p>设计分析：loop s的执行需要两个信息，循环次数和到s的位移。因此使用cx存放循环次数，用bx存放位移</p>
+<p>应用实例：在屏幕中间显示80个”!”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">start:</span><br><span class="line">  mov ax,0b800h</span><br><span class="line">  mov es,ax</span><br><span class="line">  mov di,160*12</span><br><span class="line">  mov bx,offset s-offset se</span><br><span class="line">  mov cx,80</span><br><span class="line"></span><br><span class="line">s:</span><br><span class="line">  mov byte ptr es:[di],&#39;!&#39;</span><br><span class="line">  add di,2</span><br><span class="line">  int 7ch</span><br><span class="line"></span><br><span class="line">se:nop</span><br><span class="line"></span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line"></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<p>int 7ch指令功能分析：</p>
+<p>1：dec cx;</p>
+<p>2：如果(cx)!=0，转到标号s处执行，否则向下执行；</p>
+<p>转到标号执行需要将(cs)设置为标号s的段地址，(ip)设置为标号s的偏移地址；</p>
+<p>在引发中断过程后，当前标志寄存器，cs和ip都要压栈，此时压入的cs和ip中的内容，是调用程序的段地址(标号s的段地址)和int 7ch后一条指令的偏移地址(标号se的偏移地址)</p>
+<p>因此，使用标号se的偏移地址加上bx中存放的转移位移就可以得到标号s的偏移地址。中断例程如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1p:</span><br><span class="line">  push bp</span><br><span class="line">  mov bp,sp</span><br><span class="line">  dec cx</span><br><span class="line">  jcxz 1pret</span><br><span class="line">  add [bp+2],bx</span><br><span class="line"></span><br><span class="line">1pret:</span><br><span class="line">  pop bp</span><br><span class="line">  iret </span><br></pre></td></tr></table></figure>
+
+<p>因为使用了bp在程序开始处将bp入栈保存，结束时出栈恢复。栈中位置：顶部是原来bp的数值；下面是se的偏移地址；再下面是s的段地址；再下面是标志寄存器的值。因此将[bp+2]位置的值加上偏移地址，实现跳转。</p>
+<h3 id="bios和dos的中断例程"><a href="#bios和dos的中断例程" class="headerlink" title="bios和dos的中断例程"></a>bios和dos的中断例程</h3><p>1.开机后cpu加电，初始化(cs)=0FFFFH，(IP)=0，自动从FFFF:0单元开始执行程序。FFFF:0处有跳转指令，CPU执行该指令后，转去执行bios中的硬件系统检测和初始化程序</p>
+<p>2.初始化程序将建立bios所支持的中断向量，即将bios提供的中断例程的入口地址登记在中断向量表中。(bios的中断例程固化在ROM中)</p>
+<p>3.硬件系统检测和初始化完成后，调用int 19h进行操作系统的引导。然后将计算机交由操作系统控制。</p>
+<p>4.DOS启动后，除完成其他工作外，还将它所提供的中断例程装入内存，并建立相应的中断向量</p>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p>CPU可以直接读写3个地方的数据：</p>
+<p>1.CPU内部的寄存器；</p>
+<p>2.内存单元；</p>
+<p>3.端口；</p>
+<h3 id="端口的读写"><a href="#端口的读写" class="headerlink" title="端口的读写"></a>端口的读写</h3><p>访问端口时，CPU通过端口地址来定位端口，端口和内存地址一样，通过地址总线来传送。在PC系统中CPU最多可以定位64KB个不同的端口。端口的范围是0-65535</p>
+<h3 id="shl和shr指令"><a href="#shl和shr指令" class="headerlink" title="shl和shr指令"></a>shl和shr指令</h3><p>shl和shr是逻辑移位指令。</p>
+<p>shl是逻辑左移指令，功能为：</p>
+<p>1.将一个寄存器或内存单元中的数据向左移位；<br>2.将最后移出的一位写入CF中；<br>3.最低位用0补充</p>
+<p>指令：<br>mov al,01001000b<br>shl al,1</p>
+<p>结果：(al)=10010000b，CF=0</p>
+<p>如果移动位数大于1，须将移动位数放在cl中：</p>
+<p>mov al,01010001b<br>mov cl,3<br>shl al,cl</p>
+<p>执行后(al)=10001000b，因为最后移出的一位是0，所以CF=0</p>
+<p>shl是逻辑右移指令，功能为：</p>
+<p>1.将一个寄存器或内存单元中的数据向右移位；<br>2.将最后移出的一位写入CF中；<br>3.最高位用0补充</p>
+<p>指令：<br>mov al,10000001b<br>shr al,1</p>
+<p>结果：(al)=01000000b，CF=1</p>
+<p>如果移动位数大于1，须将移动位数放在cl中：</p>
+<p>mov al,01010001b<br>mov cl,3<br>shr al,cl</p>
+<p>执行后(al)=00001010b，因为最后移出的一位是0，所以CF=0</p>
+<h2 id="外中断"><a href="#外中断" class="headerlink" title="外中断"></a>外中断</h2><p>外中断：用于处理外部设备，接收输入，并且输出</p>
+<h3 id="外中断信息"><a href="#外中断信息" class="headerlink" title="外中断信息"></a>外中断信息</h3><p>在PC系统中，外中断源一共有一下两类</p>
+<p>1.可屏蔽中断：<br>CPU可以不响应此类中断。CPU是否响应取决于标志寄存位的IF位设置。当CPU检测到可屏蔽中断信息时，如果IF=1，则CPU在执行完当前指令后响应中断，引发中断过程，如果IF=0，则不响应可屏蔽中断</p>
+<p>内中断引发的中断过程：</p>
+<p>1.取中断类型码n；<br>2.标志寄存器入栈，IF=0，TF=0;<br>3.CS,IP入栈；<br>4.(IP)=(N*4)，(CS)=(n*4+2)</p>
+<p>我们可以手动设置IF指令：</p>
+<p>sti，设置IF=1<br>cli，设置IF=0</p>
+<p>2.不可屏蔽中断：<br>不可屏蔽中断是CPU必须响应的外中断。当CPU检测到不可屏蔽中断信息时，则在执行完当前指令后，立即响应，引发中断过程。</p>
+<p>不可屏蔽中断的过程：</p>
+<p>1.标志寄存器入栈，IF=0，TF=0;<br>2.CS,IP入栈；<br>3.(IP)=(8)，(CS)=(0AH)</p>
+<p>所有由外设引发的外中断都是可屏蔽中断，当外设有需要处理的事件发生时，相关芯片向CPU发出可屏蔽中断信息。</p>
+<h3 id="PC机键盘的处理过程"><a href="#PC机键盘的处理过程" class="headerlink" title="PC机键盘的处理过程"></a>PC机键盘的处理过程</h3><p>1.键盘输入</p>
+<p>键盘上每一个键相当于一个开关，按下一个键时，开关接通，该芯片产生扫描码并将其送入主板上的相关接口，该寄存器端口地址为60H</p>
+<p><img src="./index/huibian9.png"></p>
+<p><img src="./index/huibian10.png"></p>
 
                 
             </div>
@@ -1310,7 +1365,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-12
                             </span>
                         <span class="publish-author">
                             
@@ -1348,7 +1403,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-12
                             </span>
                         <span class="publish-author">
                             
