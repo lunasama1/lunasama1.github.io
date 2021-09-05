@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo">
+    <meta name="keywords" content="java, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo</title>
+    <title>java | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -446,12 +446,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">java</h1>
                 </div>
             </div>
         </div>
@@ -579,7 +579,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-01
+                    2021-03-12
                 </div>
                 
 
@@ -588,7 +588,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    2k
                 </div>
                 
 
@@ -605,7 +605,106 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="java"><a href="#java" class="headerlink" title="java"></a>java</h1><h2 id="对象与运算符"><a href="#对象与运算符" class="headerlink" title="对象与运算符"></a>对象与运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">两者等价</span><br><span class="line">String s&#x3D; &quot;abcd&quot;;</span><br><span class="line">String s&#x3D; new String(&quot;abcd&quot;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Random rand &#x3D; new Random(47);&#x2F;&#x2F;47是随机数种子</span><br><span class="line">int i &#x3D; rand.nextInt(100);&#x2F;&#x2F;100为随机数范围</span><br></pre></td></tr></table></figure>
+
+<p>在文本值的后面添加字符可以让编译器识别该文本值的类型。对于 Long 型数值，结尾使用大写L或小写l皆可（推荐大写）。以此类推至大写F和小写f表示float浮点数，大写D或小写d表示double浮点数。</p>
+<p>Integer.toBinaryString()//转换为二进制</p>
+<table>
+<thead>
+<tr>
+<th align="center">输出格式中%的使用</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%d</td>
+<td align="center">按十进制整型数据的实际长度输出。</td>
+</tr>
+<tr>
+<td align="center">%ld</td>
+<td align="center">输出长整型数据。</td>
+</tr>
+<tr>
+<td align="center">%md</td>
+<td align="center">如果数据的位数小于 m，则左端补以空格，若大于 m，则按实际位数输出。</td>
+</tr>
+<tr>
+<td align="center">%u</td>
+<td align="center">%u输出无符号整型（unsigned）。输出无符号整型时也可以用 %d，这时是将无符号转换成有符号数，然后输出。但最好不要这么写，因为这样要进行一次转换，浪费资源</td>
+</tr>
+<tr>
+<td align="center">%c</td>
+<td align="center">用来输出一个字符。</td>
+</tr>
+<tr>
+<td align="center">%f</td>
+<td align="center">用来输出实数，包括单精度和双精度，以小数形式输出。不指定字段宽度，由系统自动指定，整数部分全部输出，小数部分输出 6 位，超过 6 位的四舍五入。</td>
+</tr>
+<tr>
+<td align="center">%.mf</td>
+<td align="center">输出实数时小数点后保留 m 位，注意 m 前面有个点。</td>
+</tr>
+<tr>
+<td align="center">%o</td>
+<td align="center">以八进制整数形式输出。</td>
+</tr>
+<tr>
+<td align="center">%s</td>
+<td align="center">用来输出字符串。用 %s 输出字符串同前面直接输出字符串是一样的。但是此时要先定义字符数组或字符指针存储或指向字符串。</td>
+</tr>
+<tr>
+<td align="center">%x</td>
+<td align="center">以十六进制形式输出整数。</td>
+</tr>
+<tr>
+<td align="center">%n</td>
+<td align="center">换行(并不是完全适用最好使用\n)。</td>
+</tr>
+</tbody></table>
+<h3 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h3><p>在java中可以在数字字面量中包含下划线，是结果更清晰。如下例所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Underscores &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        double d &#x3D; 341_435_936.445_667;</span><br><span class="line">        System.out.println(d);</span><br><span class="line">        int bin &#x3D; 0b0010_1111_1010_1111_1010_1111_1010_1111;</span><br><span class="line">        System.out.println(Integer.toBinaryString(bin));</span><br><span class="line">        System.out.printf(&quot;%x%n&quot;, bin); &#x2F;&#x2F; [1]</span><br><span class="line">        long hex &#x3D; 0x7f_e9_b7_aa;</span><br><span class="line">        System.out.printf(&quot;%x%n&quot;, hex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">结果：</span><br><span class="line">3.41435936445667E8</span><br><span class="line">101111101011111010111110101111</span><br><span class="line">2fafafaf</span><br><span class="line">7fe9b7aa</span><br></pre></td></tr></table></figure>
+
+<p>使用规则：1.仅限单_，不能多条相连；2.数值开头和结尾不允许出现_；3.F,D和L的前后禁止出现_；4.二进制前导b和十六禁止x前后禁止出现_。</p>
+<h3 id="简洁的三元运算符"><a href="#简洁的三元运算符" class="headerlink" title="简洁的三元运算符"></a>简洁的三元运算符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class TernaryIfElse &#123;</span><br><span class="line">    </span><br><span class="line">static int ternary(int i) &#123;</span><br><span class="line">    return i &lt; 10 ? i * 100 : i * 10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static int standardIfElse(int i) &#123;</span><br><span class="line">    if(i &lt; 10)</span><br><span class="line">        return i * 100;</span><br><span class="line">    else</span><br><span class="line">        return i * 10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(ternary(9));</span><br><span class="line">        System.out.println(ternary(10));</span><br><span class="line">        System.out.println(standardIfElse(9));</span><br><span class="line">        System.out.println(standardIfElse(10));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>三元运算符的结果输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class StringOperators &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int x &#x3D; 0, y &#x3D; 1, z &#x3D; 2;</span><br><span class="line">        String s &#x3D; &quot;x, y, z &quot;;</span><br><span class="line">        System.out.println(s + x + y + z);</span><br><span class="line">        &#x2F;&#x2F; 将 x 转换为字符串</span><br><span class="line">        System.out.println(x + &quot; &quot; + s);</span><br><span class="line">        s +&#x3D; &quot;(summed) &#x3D; &quot;; </span><br><span class="line">        &#x2F;&#x2F; 级联操作</span><br><span class="line">        System.out.println(s + (x + y + z));</span><br><span class="line">        &#x2F;&#x2F; Integer.toString()方法的简写:</span><br><span class="line">        System.out.println(&quot;&quot; + x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">x, y, z 012</span><br><span class="line">0 x, y, z</span><br><span class="line">x, y, z (summed) &#x3D; 3</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<p><code>java的截断与进位</code></p>
+<p>对于float和double转换为整数时，小数位将被截断，若需四舍五入可使用Math.round()：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class RoundingNumbers &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        double above &#x3D; 0.7, below &#x3D; 0.4;</span><br><span class="line">        float fabove &#x3D; 0.7f, fbelow &#x3D; 0.4f;</span><br><span class="line">        System.out.println(</span><br><span class="line">        &quot;Math.round(above): &quot; + Math.round(above));</span><br><span class="line">        System.out.println(</span><br><span class="line">        &quot;Math.round(below): &quot; + Math.round(below));</span><br><span class="line">        System.out.println(</span><br><span class="line">        &quot;Math.round(fabove): &quot; + Math.round(fabove));</span><br><span class="line">        System.out.println(</span><br><span class="line">        &quot;Math.round(fbelow): &quot; + Math.round(fbelow));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Math.round(above): 1</span><br><span class="line">Math.round(below): 0</span><br><span class="line">Math.round(fabove): 1</span><br><span class="line">Math.round(fbelow): 0</span><br></pre></td></tr></table></figure>
+
+<p>可用于截取指定字符串长度(两者皆可)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public String substring(int beginIndex, int endIndex)</span><br><span class="line"></span><br><span class="line">    public static String deleteString0(String str, char delChar)&#123;</span><br><span class="line">        String delStr &#x3D; &quot;&quot;;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; str.length(); i++) &#123;</span><br><span class="line">            if(str.charAt(i) !&#x3D; delChar)&#123;</span><br><span class="line">                delStr +&#x3D; str.charAt(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return delStr;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class HelloWorld &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        for(char c: &quot;An African Swallow&quot;.toCharArray())</span><br><span class="line">          System.out.print(c + &quot;&quot;);</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="静态数据初始化"><a href="#静态数据初始化" class="headerlink" title="静态数据初始化"></a>静态数据初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; housekeeping&#x2F;StaticInitialization.java</span><br><span class="line">&#x2F;&#x2F; Specifying initial values in a class definition</span><br><span class="line"></span><br><span class="line">class Bowl &#123;</span><br><span class="line">    Bowl(int marker) &#123;</span><br><span class="line">        System.out.println(&quot;Bowl(&quot; + marker + &quot;)&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void f1(int marker) &#123;</span><br><span class="line">        System.out.println(&quot;f1(&quot; + marker + &quot;)&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Table &#123;</span><br><span class="line">    static Bowl bowl1 &#x3D; new Bowl(1);</span><br><span class="line">    </span><br><span class="line">    Table() &#123;</span><br><span class="line">        System.out.println(&quot;Table()&quot;);</span><br><span class="line">        bowl2.f1(1);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void f2(int marker) &#123;</span><br><span class="line">        System.out.println(&quot;f2(&quot; + marker + &quot;)&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    static Bowl bowl2 &#x3D; new Bowl(2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Cupboard &#123;</span><br><span class="line">    Bowl bowl3 &#x3D; new Bowl(3);</span><br><span class="line">    static Bowl bowl4 &#x3D; new Bowl(4);</span><br><span class="line">    </span><br><span class="line">    Cupboard() &#123;</span><br><span class="line">        System.out.println(&quot;Cupboard()&quot;);</span><br><span class="line">        bowl4.f1(2);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void f3(int marker) &#123;</span><br><span class="line">        System.out.println(&quot;f3(&quot; + marker + &quot;)&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    static Bowl bowl5 &#x3D; new Bowl(5);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class StaticInitialization &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(&quot;main creating new Cupboard()&quot;);</span><br><span class="line">        new Cupboard();</span><br><span class="line">        System.out.println(&quot;main creating new Cupboard()&quot;);</span><br><span class="line">        new Cupboard();</span><br><span class="line">        table.f2(1);</span><br><span class="line">        cupboard.f3(1);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    static Table table &#x3D; new Table();</span><br><span class="line">    static Cupboard cupboard &#x3D; new Cupboard();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Bowl(1)&#x2F;&#x2F;初始化类，并运行static关键字定义的类</span><br><span class="line">Bowl(2)</span><br><span class="line">Table()&#x2F;&#x2F;运行同名类</span><br><span class="line">f1(1)</span><br><span class="line">Bowl(4)&#x2F;&#x2F;初始化类，并运行static关键字定义的类,再运行无关键字的类</span><br><span class="line">Bowl(5)</span><br><span class="line">Bowl(3)</span><br><span class="line">Cupboard()&#x2F;&#x2F;运行同名类</span><br><span class="line">f1(2)</span><br><span class="line">main creating new Cupboard()&#x2F;&#x2F;初始化类，并运行无关键字定义的类,再运行static关键字的类</span><br><span class="line">Bowl(3)</span><br><span class="line">Cupboard()</span><br><span class="line">f1(2)</span><br><span class="line">main creating new Cupboard()</span><br><span class="line">Bowl(3)</span><br><span class="line">Cupboard()</span><br><span class="line">f1(2)</span><br><span class="line">f2(1)</span><br><span class="line">f3(1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>初始化的顺序先是静态对象（如果它们之前没有被初始化的话），然后是非静态对象，从输出中可以看出。要执行 main() 方法，必须加载 StaticInitialization 类，它的静态属性 table 和 cupboard 随后被初始化，这会导致它们对应的类也被加载，而由于它们都包含静态的 Bowl 对象，所以 Bowl 类也会被加载。因此，在这个特殊的程序中，所有的类都会在 main() 方法之前被加载。实际情况通常并非如此，因为在典型的程序中，不会像本例中所示的那样，将所有事物通过 static 联系起来。</p>
+<h3 id="数组创建"><a href="#数组创建" class="headerlink" title="数组创建"></a>数组创建</h3><p>对于基本类型数组：</p>
+<p>数组可以在定义的同时进行初始化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class ArrayNew &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[] a;</span><br><span class="line">        Random rand &#x3D; new Random(47);</span><br><span class="line">        a &#x3D; new int[rand.nextInt(20)];</span><br><span class="line">        System.out.println(&quot;length of a &#x3D; &quot; + a.length);</span><br><span class="line">        System.out.println(Arrays.toString(a));</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果是一个非基本类型的数组，那么创建的是一个引用数组。以整型的包装类型 Integer 为例，它是一个类而非基本类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; housekeeping&#x2F;ArrayClassObj.java</span><br><span class="line">&#x2F;&#x2F; Creating an array of nonprimitive objects</span><br><span class="line"></span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class ArrayClassObj &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Random rand &#x3D; new Random(47);</span><br><span class="line">        Integer[] a &#x3D; new Integer[rand.nextInt(20)];</span><br><span class="line">        System.out.println(&quot;length of a &#x3D; &quot; + a.length);</span><br><span class="line">        for (int i &#x3D; 0; i &lt; a.length; i++) &#123;</span><br><span class="line">            a[i] &#x3D; rand.nextInt(500); &#x2F;&#x2F; Autoboxing</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Arrays.toString(a));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里，即使使用 new 创建数组之后：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer[] a &#x3D; new Integer[rand.nextInt(20)];	</span><br></pre></td></tr></table></figure>
+
+<p>它只是一个引用数组，直到通过创建新的 Integer 对象（通过自动装箱），并把对象赋值给引用，初始化才算结束：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[i] &#x3D; rand.nextInt(500);</span><br></pre></td></tr></table></figure>
+
+<p>多种重载方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; housekeeping&#x2F;OverloadingVarargs.java</span><br><span class="line"></span><br><span class="line">public class OverloadingVarargs &#123;</span><br><span class="line">    static void f(Character... args) &#123;</span><br><span class="line">        System.out.print(&quot;first&quot;);</span><br><span class="line">        for (Character c: args) &#123;</span><br><span class="line">            System.out.print(&quot; &quot; + c);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    static void f(Integer... args) &#123;</span><br><span class="line">        System.out.print(&quot;second&quot;);</span><br><span class="line">        for (Integer i: args) &#123;</span><br><span class="line">            System.out.print(&quot; &quot; + i);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    static void f(Long... args) &#123;</span><br><span class="line">        System.out.println(&quot;third&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        f(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;);</span><br><span class="line">        f(1);</span><br><span class="line">        f(2, 1);</span><br><span class="line">        f(0);</span><br><span class="line">        f(0L);</span><br><span class="line">        &#x2F;&#x2F;- f(); &#x2F;&#x2F; Won&#39;s compile -- ambiguous</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">first a b c</span><br><span class="line">second 1</span><br><span class="line">second 2 1</span><br><span class="line">second 0</span><br><span class="line">third</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; housekeeping&#x2F;Spiciness.java</span><br><span class="line"></span><br><span class="line">public enum Spiciness &#123;</span><br><span class="line">    NOT, MILD, MEDIUM, HOT, FLAMING</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; housekeeping&#x2F;EnumOrder.java</span><br><span class="line"></span><br><span class="line">public class EnumOrder &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        for (Spiciness s: Spiciness.values()) &#123;</span><br><span class="line">            System.out.println(s + &quot;, ordinal &quot; + s.ordinal());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">NOT, ordinal 0</span><br><span class="line">MILD, ordinal 1</span><br><span class="line">MEDIUM, ordinal 2</span><br><span class="line">HOT, ordinal 3</span><br><span class="line">FLAMING, ordinal 4</span><br></pre></td></tr></table></figure>
+
+
                 
             </div>
             <hr/>
@@ -847,9 +946,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="java">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">java</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -860,7 +959,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
                             </span>
                         <span class="publish-author">
                             
@@ -885,9 +984,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="java">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">java</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -898,7 +997,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
                             </span>
                         <span class="publish-author">
                             
