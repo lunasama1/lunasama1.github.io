@@ -603,7 +603,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.2k
+                    4.4k
                 </div>
                 
 
@@ -718,6 +718,17 @@
 <p><img src="/png/ctf45.png"></p>
 <p>foremost分离1992.dmp发现含有key,iv以及二维码，二维码解密获得一串字符，根据iv,key推断出为AES密码</p>
 <p>解密获得flag</p>
+<p>一些命令的补充：</p>
+<p>用于获得用户名和密码的hash值：<code>volatility -f mem.dump --profile=Win7SP1x64 hashdump  </code></p>
+<p>命令行查询：查找指定类型文件:<code>volatility -f mem.dump --profile=Win7SP1x64 filescan | grep flag</code></p>
+<p>查找多个类型文件:<code>volatility -f mem.dump --profile=Win7SP1x64 filescan | grep &quot;jpg\|jpeg\|png\|tif\|gif\|bmp&quot;</code></p>
+<p>grep可换为：<code>grep &quot;Desktop&quot;</code> 或 <code>grep &quot;桌面&quot;</code></p>
+<p>strings查找并存放：<code>strings -e l 2040.dmp | grep flag &gt; 1.txt </code></p>
+<p>查看网络连接：<code>volatility -f mem.dump --profile=Win7SP1x64 coonscan </code></p>
+<p>windows服务列表： <code>volatility -f mem.dump --profile=Win7SP1x64 svcscan  </code></p>
+<p>网络连接： <code>volatility -f mem.dump --profile=Win7SP1x64 netscan  </code></p>
+<p>查看剪切板： <code>volatility -f mem.dump --profile=Win7SP1x64 clipboard  </code></p>
+<p>查看注册表：<code>volatility -f mem.dump --profile=Win7SP1x64 hivelist  </code></p>
 <h3 id="AX-25（Amateur-X-25）"><a href="#AX-25（Amateur-X-25）" class="headerlink" title="AX.25（Amateur X.25）"></a>AX.25（Amateur X.25）</h3><p>ax.25是数据链路层协议套件，旨在供业余无线电运营商使用</p>
 <p>AX.25协议在物理层使用BFSK调制</p>
 <p>对于音频文件可以尝试观察频谱（分析-频谱分析）</p>
@@ -1416,7 +1427,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.7k</span>&nbsp;字
+                class="white-color">4.9k</span>&nbsp;字
             
             
             
